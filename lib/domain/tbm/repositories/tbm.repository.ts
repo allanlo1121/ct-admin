@@ -1,0 +1,152 @@
+import { createClient } from "@/lib/infra/supabase/server";
+
+import { PaginatedResult } from "@/lib/shared/contracts";
+import { applyPagination, assertNoError } from "@/lib/infra/repositories/base.repository";
+import { appErrors } from "@/lib/shared/contracts";
+import { tbmQuery, TbmQueryType } from "../queries";
+
+import { Tbm, TbmListItem, TbmDetail } from "../types";
+import { mapTbm, mapTbmInsert, mapTbmListItem, mapTbmUpdate, mapTbmDetail } from "../mappers";
+import { CreateTbmInput, UpdateTbmInput } from "../schemas";
+
+async function paginate(query: TbmQueryType): Promise<PaginatedResult<TbmListItem>> {
+  const supabase = await createClient();
+
+  // console.log("org list query", query);
+
+  const { from, to } = applyPagination(query.page, query.pageSize);
+
+  let dbQuery = supabase
+    .schema("tbm")
+    .from("v_tbm_list")
+    .select("*", { count: "exact" })
+    .range(from, to);
+
+  if (query.search) {
+    dbQuery = dbQuery.ilike("name", `%${query.search}%`);
+  }
+
+  if (query.tbmTypeId && query.tbmTypeId !== "all") {
+    dbQuery = dbQuery.eq("tbm_type_id", query.tbmTypeId);
+  }
+
+  if (query.tbmManufacturerId && query.tbmManufacturerId !== "all") {
+    dbQuery = dbQuery.eq("manufacturer_id", query.tbmManufacturerId);
+  }
+
+  // 排序逻辑（只排序一次）
+  const dbSortField = tbmQuery.mapSort(query.sortBy);
+
+  dbQuery = dbQuery.order(dbSortField, {
+    ascending: query.sortDirection === "asc",
+  });
+
+  const { data, count, error } = await dbQuery;
+
+  console.log("TBM paginate query result:", { data, count, error });
+
+  assertNoError(error);
+
+  return {
+    items: (data ?? []).map(mapTbmListItem),
+    total: count ?? 0,
+    page: query.page,
+    pageSize: query.pageSize,
+  };
+}
+
+export const tbmRepository = {
+  insert: async (input: CreateTbmInput): Promise<Tbm> => {
+    // console.log("Inserting TBM with input:", input);
+
+    const payload = mapTbmInsert(input);
+    const supabase = await createClient();
+
+    const { data, error } = await supabase
+      .schema("tbm")
+      .from("tbms")
+      .insert(payload)
+      .select("*")
+      .single();
+
+    // console.log("Insert TBM result:", { data, error });
+    assertNoError(error);
+
+    if (!data) {
+      throw appErrors.internal("tbmRepository.insert", "创建盾构机失败");
+    }
+
+    return mapTbm(data);
+  },
+  update: async (input: UpdateTbmInput): Promise<Tbm> => {
+    const payload = mapTbmUpdate(input);
+    const supabase = await createClient();
+
+    const { data, error } = await supabase
+      .schema("tbm")
+      .from("tbms")
+      .update(payload)
+      .eq("code", input.code)
+      .select("*")
+      .single();
+
+    assertNoError(error);
+
+    if (!data) {
+      throw appErrors.internal("tbmRepository.update", "更新盾构机失败");
+    }
+
+    return mapTbm(data);
+  },
+
+  deleteByCode: async (code: string): Promise<void> => {
+    const supabase = await createClient();
+
+    const { error } = await supabase
+      .schema("tbm")
+      .from("tbms")
+      .update({
+        deleted_at: new Date().toISOString(),
+      })
+      .eq("code", code)
+      .is("deleted_at", null)
+      .select("*")
+      .single();
+
+    assertNoError(error);
+  },
+
+  findByCode: async (code: string): Promise<Tbm | null> => {
+    const supabase = await createClient();
+
+    const { data, error } = await supabase
+      .schema("tbm")
+      .from("tbms")
+      .select("*")
+      .eq("code", code)
+      .maybeSingle();
+
+    assertNoError(error);
+
+    return data ? mapTbm(data) : null;
+  },
+  // getAllList,
+  paginate,
+  getTbmDetailByCode,
+  // softDeleteMany,
+};
+
+async function getTbmDetailByCode(code: string): Promise<TbmDetail | null> {
+  const supabase = await createClient();
+
+  const { data, error } = await supabase
+    .schema("tbm")
+    .from("v_tbm_detail")
+    .select("*")
+    .eq("code", code)
+    .single();
+
+  assertNoError(error);
+
+  return data ? mapTbmDetail(data) : null;
+}

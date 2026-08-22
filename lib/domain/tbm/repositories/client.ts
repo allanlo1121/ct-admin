@@ -1,0 +1,84 @@
+import { createClient } from "@/lib/infra/supabase/client";
+import { assertNoError } from "@/lib/infra/repositories/base.repository";
+import { Tbm, TbmPickerItem, TbmPickerQuery, TbmPickerResult } from "../types";
+import { mapTbm, mapTbmPicker } from "../mappers";
+import { PaginatedResult } from "@/lib/shared/contracts";
+
+export const tbmClientRepository = {
+  searchTbmPicker,
+  getTbmPickerById,
+  findByCode,
+};
+
+async function findByCode(code: string): Promise<Tbm | null> {
+  const supabase = createClient();
+
+  const { data, error } = await supabase
+    .schema("tbm")
+    .from("tbms")
+    .select("*")
+    .eq("code", code)
+    .maybeSingle();
+
+  assertNoError(error);
+
+  return data ? mapTbm(data) : null;
+}
+
+async function searchTbmPicker(query: TbmPickerQuery): Promise<PaginatedResult<TbmPickerItem>> {
+  const supabase = createClient();
+
+  console.log("searchTbmPicker query", query);
+
+  let builder = supabase.schema("tbm").from("v_tbm_picker").select("*", { count: "exact" });
+
+  if (query.search?.trim()) {
+    const keyword = query.search.trim();
+
+    builder = builder.or(
+      [
+        `name.ilike.%${keyword}%`,
+        `tbm_type_name.ilike.%${keyword}%`,
+        `manufacturer_name.ilike.%${keyword}%`,
+      ].join(",")
+    );
+  }
+
+  // if (query.diameterRange) {
+  //   builder = builder
+  //     .gte("diameter", query.diameterRange[0] * 1000)
+  //     .lte("diameter", query.diameterRange[1] * 1000);
+  // }
+
+  const page = query.page ?? 1;
+  const pageSize = query.pageSize ?? 20;
+
+  const from = (page - 1) * pageSize;
+  const to = from + pageSize - 1;
+
+  const { data, count, error } = await builder.range(from, to);
+
+  assertNoError(error);
+
+  return {
+    items: (data ?? []).map(mapTbmPicker),
+    total: count ?? 0,
+    page,
+    pageSize,
+  };
+}
+
+async function getTbmPickerById(id: string): Promise<TbmPickerItem | null> {
+  const supabase = createClient();
+
+  const { data, error } = await supabase
+    .schema("tbm")
+    .from("v_tbm_picker")
+    .select("*")
+    .eq("code", id)
+    .maybeSingle();
+
+  assertNoError(error);
+
+  return data ? mapTbmPicker(data) : null;
+}

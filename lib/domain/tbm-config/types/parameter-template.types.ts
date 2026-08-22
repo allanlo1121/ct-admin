@@ -1,0 +1,71 @@
+import { Database } from "@/lib/infra/supabase/types";
+import { TbmRuntimeParameterListItem } from "./parameter.types";
+
+export type TbmParameterTemplateRow = Database["tbm"]["Tables"]["parameter_templates"]["Row"];
+export type TbmParameterTemplateInsertRow =
+  Database["tbm"]["Tables"]["parameter_templates"]["Insert"];
+export type TbmParameterTemplateUpdateRow =
+  Database["tbm"]["Tables"]["parameter_templates"]["Update"];
+
+export type TbmParameterTemplateListRow =
+  Database["tbm"]["Views"]["v_parameter_templates_list"]["Row"];
+// export type TbmParameterTemplatePickerRow = Database["tbm"]["Views"]["v_tbm_parameter_templates_picker"]["Row"];
+
+export type TbmParameterTemplate = {
+  id: number;
+  name: string;
+  code: string;
+  tbmTypeId: string;
+  isDefault: boolean;
+  isDisabled: boolean;
+  sortOrder: number;
+  diameter: number | null;
+  remark: string | null;
+};
+
+export type TbmParameterTemplateListItem = {
+  id: number;
+  name: string;
+  code: string;
+  tbmTypeId: string;
+  tbmTypeCode: string;
+  tbmTypeName: string;
+  isDefault: boolean;
+  isDisabled: boolean;
+  sortOrder: number;
+  diameter: number | null;
+  remark: string | null;
+};
+
+export type ParameterTemplateNodeRow = {
+  id: number;
+  name: string;
+  code: string;
+  sort_order: number;
+  parameter_count?: number;
+};
+
+export type ParameterTemplateNode = {
+  id: number;
+  code: string;
+  name: string;
+  sortOrder: number;
+  parameterCount?: number;
+};
+
+export type ParameterTemplateGroup = {
+  subsystemId: number;
+  subsystemCode: string;
+  subsystemName: string;
+  runtimeParameters: TbmRuntimeParameterListItem[];
+  templateParameterIds: number[];
+};
+
+export interface TemplateOption {
+  id: number;
+  name: string;
+  groups: {
+    subsystemId: number;
+    templateParameterIds: number[];
+  }[];
+}
