@@ -1,6 +1,6 @@
-import { ParameterSubsystemNode } from "../types";
-import { searchTbmSubsystems } from "../repositories";
+// import { ParameterSubsystemNode } from "../types";
+// import { searchTbmSubsystems } from "../repositories";
 
-export async function listTbmSubsystems(): Promise<ParameterSubsystemNode[]> {
-  return await searchTbmSubsystems();
-}
+// export async function listTbmSubsystems(): Promise<ParameterSubsystemNode[]> {
+//   return await searchTbmSubsystems();
+// }

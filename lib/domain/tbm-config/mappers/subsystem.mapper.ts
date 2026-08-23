@@ -1,11 +1,11 @@
-import { ParameterSubsystemNode, ParameterSubsystemRow } from "../types";
+// import { ParameterSubsystemNode, ParameterSubsystemRow } from "../types";
 
-export function mapSubsystemRowToNode(row: ParameterSubsystemRow): ParameterSubsystemNode {
-  return {
-    id: row.id,
-    code: row.code,
-    name: row.name,
-    sortOrder: row.sort_order,
-    parameterCount: row.parameter_count,
-  };
-}
+// export function mapSubsystemRowToNode(row: ParameterSubsystemRow): ParameterSubsystemNode {
+//   return {
+//     id: row.id,
+//     code: row.code,
+//     name: row.name,
+//     sortOrder: row.sort_order,
+//     parameterCount: row.parameter_count,
+//   };
+// }

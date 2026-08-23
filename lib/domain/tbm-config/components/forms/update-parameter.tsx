@@ -1,30 +1,30 @@
-"use client";
+// "use client";
 
-import { updateTbmRuntimeParameterAction } from "../../actions";
-import { UpdateTbmRuntimeParameterSchema } from "../../schemas";
-import { CrudFormPage } from "@/lib/shared/crud/components/crud-form-page";
-import { routes } from "@/lib/core/router/router";
+// import { updateTbmRuntimeParameterAction } from "../../actions";
+// import { UpdateTbmRuntimeParameterSchema } from "../../schemas";
+// import { CrudFormPage } from "@/lib/shared/crud/components/crud-form-page";
+// import { routes } from "@/lib/core/router/router";
 
-export function UpdateTbmRuntimeParameter({
-  title,
-  description,
-  initialValues,
-}: {
-  title: string;
-  description?: string;
-  initialValues: any;
-}) {
-  console.log("UpdateTbmRuntimeParameter", initialValues);
+// export function UpdateTbmRuntimeParameter({
+//   title,
+//   description,
+//   initialValues,
+// }: {
+//   title: string;
+//   description?: string;
+//   initialValues: any;
+// }) {
+//   console.log("UpdateTbmRuntimeParameter", initialValues);
 
-  return (
-    <CrudFormPage
-      title={title}
-      description={description}
-      schema={UpdateTbmRuntimeParameterSchema}
-      initialValues={initialValues}
-      action={updateTbmRuntimeParameterAction}
-      redirect={routes.tbms.list}
-      meta={{}}
-    />
-  );
-}
+//   return (
+//     <CrudFormPage
+//       title={title}
+//       description={description}
+//       schema={UpdateTbmRuntimeParameterSchema}
+//       initialValues={initialValues}
+//       action={updateTbmRuntimeParameterAction}
+//       redirect={routes.tbms.list}
+//       meta={{}}
+//     />
+//   );
+// }

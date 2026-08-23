@@ -137,14 +137,14 @@ export async function listTbmSubsystems() {
   const { data, error } = await supabase
     .schema("tbm")
     .from("subsystems")
-    .select("id,code,name")
+    .select("code,name")
     .order("sort_order", { ascending: true });
 
   assertNoError(error);
 
   return (
     data?.map((item) => ({
-      id: item.id,
+      id: item.code,
       name: `${item.code} ${item.name}`,
     })) ?? []
   );
@@ -186,28 +186,28 @@ export async function listTbmPlcTagNames(
 
 export async function listTbmParametersByCode(
   parameterCodes: string[]
-): Promise<{ id: number; code: string }[]> {
+): Promise<{ id: string; name: string }[]> {
   const supabase = createClient();
 
   const chunks = chunk(parameterCodes, 500);
 
   const result: {
-    id: number;
-    code: string;
+    id: string;
+    name: string;
   }[] = [];
 
   for (const codes of chunks) {
     const { data, error } = await supabase
       .schema("tbm")
-      .from("runtime_parameters")
-      .select("id, code")
+      .from("parameters")
+      .select("code,name")
       .in("code", codes);
     assertNoError(error);
 
     result.push(
       ...(data?.map((item) => ({
-        id: item.id,
-        code: item.code,
+        id: item.code,
+        name: item.name,
       })) ?? [])
     );
   }

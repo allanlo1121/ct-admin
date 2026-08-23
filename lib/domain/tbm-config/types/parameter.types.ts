@@ -1,17 +1,17 @@
 import { Database } from "@/lib/infra/supabase/types";
 
-export type TbmRuntimeParameterRow = Database["tbm"]["Tables"]["runtime_parameters"]["Row"];
+export type TbmRuntimeParameterRow = Database["tbm"]["Tables"]["parameters"]["Row"];
 export type TbmRuntimeParameterInsertRow =
-  Database["tbm"]["Tables"]["runtime_parameters"]["Insert"];
+  Database["tbm"]["Tables"]["parameters"]["Insert"];
 export type TbmRuntimeParameterUpdateRow =
-  Database["tbm"]["Tables"]["runtime_parameters"]["Update"];
+  Database["tbm"]["Tables"]["parameters"]["Update"];
 
 export type TbmRuntimeParameterListRow =
-  Database["tbm"]["Views"]["v_runtime_parameters_list"]["Row"];
+  Database["tbm"]["Views"]["v_parameters_list"]["Row"];
 export type TbmRuntimeParameterPickerRow =
-  Database["tbm"]["Views"]["v_runtime_parameters_picker"]["Row"];
+  Database["tbm"]["Views"]["v_parameters_picker"]["Row"];
 
-export type TbmRuntimeParameter = {
+export type TbmParameter = {
   id: number;
   name: string;
   code: string;
@@ -29,7 +29,7 @@ export type TbmRuntimeParameter = {
   unit: string | null;
 };
 
-export type TbmRuntimeParameterListItem = {
+export type TbmParameterListItem = {
   id: number;
   name: string;
   code: string;
@@ -43,7 +43,7 @@ export type TbmRuntimeParameterListItem = {
   subsystemName: string | null;
 };
 
-export type TbmRuntimeParameterWithSubsystem = TbmRuntimeParameter & {
+export type TbmRuntimeParameterWithSubsystem = TbmParameter & {
   subsystemName: string;
 };
 
