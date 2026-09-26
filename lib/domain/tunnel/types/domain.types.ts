@@ -1,39 +1,35 @@
-// export type EmployeeListItem = {
-//   id: string;
-//   name: string;
-//   code: string | null;
-//   organizationId: string | null;
-//   organizationName: string | null;
-//   statusName: string | null;
 
-//   sortOrder: number;
-//   createdAt: string;
-// };
+import { OrganizationRef } from "@/lib/domain/organization/types/";
+import { ProjectRef } from "@/lib/domain/project/types";
+import { MasterDataRef } from "@/lib/domain/master-data/types";
+import { AuditFields } from "@/lib/shared/entity/";
 
-// export type TunnelListItem = {
-//   id: string;
-//   name: string;
-//   fullName: string | null;
-//   organizationId: string | null;
-//   organizationName: string | null;
-//   projectId: string | null;
-//   projectName: string | null;
-//   prefix: string | null;
-//   startChainage: number | null;
-//   endChainage: number | null;
-//   startRing: number | null;
-//   endRing: number | null;
-//   actualStartDate: string | null;
-//   actualEndDate: string | null;
-//   geology: string | null;
-//   longitude: number | null;
-//   latitude: number | null;
-//   tunnelStatusId: string | null;
-//   tunnelStatusName: string | null;
-//   scheduleStartDate: string | null;
-//   scheduleEndDate: string | null;
-//   remark: string | null;
-//   sortOrder: number | null;
-// };
+import { SectionRef } from "@/lib/domain/section/types";
+
+
+export const advanceDirection = ["chainageIncrease", "chainageDecrease"] as const;
+export type AdvanceDirection = (typeof advanceDirection)[number];
+
+export type TunnelBase = {
+    id: string;
+    name: string;
+    aliasName: string | null;
+    prefix: string | null;
+    startChainage: number | null;
+    endChainage: number | null;
+}
+
+export type TunnelListItem = TunnelBase & {
+
+   
+    project: ProjectRef;
+    region: MasterDataRef;
+    section: SectionRef;
+
+
+    remark: string | null;
+    sortOrder: number | null;
+    isDisabled: boolean;
+};
 
 // export type TunnelInsertItem = Camelize<TunnelInsertRow>;

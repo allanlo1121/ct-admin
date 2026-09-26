@@ -2498,6 +2498,13 @@ export type Database = {
             foreignKeyName: "project_attention_level_timelin_project_attention_level_id_fkey"
             columns: ["project_attention_level_id"]
             isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
+          },
+          {
+            foreignKeyName: "project_attention_level_timelin_project_attention_level_id_fkey"
+            columns: ["project_attention_level_id"]
+            isOneToOne: false
             referencedRelation: "v_tunnel_list"
             referencedColumns: ["region_id"]
           },
@@ -2639,13 +2646,6 @@ export type Database = {
             columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "v_project_schedule_module"
-            referencedColumns: ["project_id"]
-          },
-          {
-            foreignKeyName: "project_attention_level_timeline_project_id_fkey"
-            columns: ["project_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_risk_overview"
             referencedColumns: ["project_id"]
           },
           {
@@ -2863,6 +2863,13 @@ export type Database = {
             foreignKeyName: "project_attention_type_timeline_attention_type_id_fkey"
             columns: ["attention_type_id"]
             isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
+          },
+          {
+            foreignKeyName: "project_attention_type_timeline_attention_type_id_fkey"
+            columns: ["attention_type_id"]
+            isOneToOne: false
             referencedRelation: "v_tunnel_list"
             referencedColumns: ["region_id"]
           },
@@ -3004,13 +3011,6 @@ export type Database = {
             columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "v_project_schedule_module"
-            referencedColumns: ["project_id"]
-          },
-          {
-            foreignKeyName: "project_attention_type_timeline_project_id_fkey"
-            columns: ["project_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_risk_overview"
             referencedColumns: ["project_id"]
           },
           {
@@ -3460,6 +3460,13 @@ export type Database = {
             foreignKeyName: "project_catalog_std_major_type_id_fkey"
             columns: ["major_type_id"]
             isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
+          },
+          {
+            foreignKeyName: "project_catalog_std_major_type_id_fkey"
+            columns: ["major_type_id"]
+            isOneToOne: false
             referencedRelation: "v_tunnel_list"
             referencedColumns: ["region_id"]
           },
@@ -3544,6 +3551,13 @@ export type Database = {
             foreignKeyName: "project_catalog_std_project_catalog_type_id_fkey"
             columns: ["project_catalog_type_id"]
             isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
+          },
+          {
+            foreignKeyName: "project_catalog_std_project_catalog_type_id_fkey"
+            columns: ["project_catalog_type_id"]
+            isOneToOne: false
             referencedRelation: "v_tunnel_list"
             referencedColumns: ["region_id"]
           },
@@ -3616,6 +3630,13 @@ export type Database = {
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_type_id"]
+          },
+          {
+            foreignKeyName: "project_catalog_std_project_type_id_fkey"
+            columns: ["project_type_id"]
+            isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
           },
           {
             foreignKeyName: "project_catalog_std_project_type_id_fkey"
@@ -3837,13 +3858,6 @@ export type Database = {
             columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "v_project_schedule_module"
-            referencedColumns: ["project_id"]
-          },
-          {
-            foreignKeyName: "project_catalogs_project_id_fkey"
-            columns: ["project_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_risk_overview"
             referencedColumns: ["project_id"]
           },
           {
@@ -4506,13 +4520,6 @@ export type Database = {
             referencedColumns: ["project_id"]
           },
           {
-            foreignKeyName: "project_contracts_project_id_fkey"
-            columns: ["project_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_risk_overview"
-            referencedColumns: ["project_id"]
-          },
-          {
             foreignKeyName: "project_contracts_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
@@ -4825,6 +4832,13 @@ export type Database = {
             foreignKeyName: "project_control_level_timeline_project_control_level_id_fkey"
             columns: ["project_control_level_id"]
             isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
+          },
+          {
+            foreignKeyName: "project_control_level_timeline_project_control_level_id_fkey"
+            columns: ["project_control_level_id"]
+            isOneToOne: false
             referencedRelation: "v_tunnel_list"
             referencedColumns: ["region_id"]
           },
@@ -4868,13 +4882,6 @@ export type Database = {
             columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "v_project_schedule_module"
-            referencedColumns: ["project_id"]
-          },
-          {
-            foreignKeyName: "project_control_level_timeline_project_id_fkey"
-            columns: ["project_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_risk_overview"
             referencedColumns: ["project_id"]
           },
           {
@@ -5156,13 +5163,6 @@ export type Database = {
             referencedColumns: ["project_id"]
           },
           {
-            foreignKeyName: "project_risk_level_timeline_project_id_fkey"
-            columns: ["project_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_risk_overview"
-            referencedColumns: ["project_id"]
-          },
-          {
             foreignKeyName: "project_risk_level_timeline_project_risk_level_id_fkey"
             columns: ["project_risk_level_id"]
             isOneToOne: false
@@ -5231,6 +5231,13 @@ export type Database = {
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_type_id"]
+          },
+          {
+            foreignKeyName: "project_risk_level_timeline_project_risk_level_id_fkey"
+            columns: ["project_risk_level_id"]
+            isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
           },
           {
             foreignKeyName: "project_risk_level_timeline_project_risk_level_id_fkey"
@@ -5631,13 +5638,6 @@ export type Database = {
             referencedColumns: ["project_id"]
           },
           {
-            foreignKeyName: "project_schedule_versions_project_id_fkey"
-            columns: ["project_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_risk_overview"
-            referencedColumns: ["project_id"]
-          },
-          {
             foreignKeyName: "project_schedule_versions_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
@@ -6023,13 +6023,6 @@ export type Database = {
             referencedColumns: ["project_id"]
           },
           {
-            foreignKeyName: "project_status_timeline_project_id_fkey"
-            columns: ["project_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_risk_overview"
-            referencedColumns: ["project_id"]
-          },
-          {
             foreignKeyName: "project_status_timeline_project_status_id_fkey"
             columns: ["project_status_id"]
             isOneToOne: false
@@ -6098,6 +6091,13 @@ export type Database = {
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_type_id"]
+          },
+          {
+            foreignKeyName: "project_status_timeline_project_status_id_fkey"
+            columns: ["project_status_id"]
+            isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
           },
           {
             foreignKeyName: "project_status_timeline_project_status_id_fkey"
@@ -6175,6 +6175,13 @@ export type Database = {
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_type_id"]
+          },
+          {
+            foreignKeyName: "project_status_timeline_project_sub_status_id_fkey"
+            columns: ["project_sub_status_id"]
+            isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
           },
           {
             foreignKeyName: "project_status_timeline_project_sub_status_id_fkey"
@@ -6361,13 +6368,6 @@ export type Database = {
             columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "v_project_schedule_module"
-            referencedColumns: ["project_id"]
-          },
-          {
-            foreignKeyName: "project_work_points_project_id_fkey"
-            columns: ["project_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_risk_overview"
             referencedColumns: ["project_id"]
           },
         ]
@@ -6746,6 +6746,13 @@ export type Database = {
             foreignKeyName: "projects_project_management_mode_id_fkey"
             columns: ["project_management_mode_id"]
             isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
+          },
+          {
+            foreignKeyName: "projects_project_management_mode_id_fkey"
+            columns: ["project_management_mode_id"]
+            isOneToOne: false
             referencedRelation: "v_tunnel_list"
             referencedColumns: ["region_id"]
           },
@@ -6823,6 +6830,13 @@ export type Database = {
             foreignKeyName: "projects_project_sub_type_id_fkey"
             columns: ["project_sub_type_id"]
             isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
+          },
+          {
+            foreignKeyName: "projects_project_sub_type_id_fkey"
+            columns: ["project_sub_type_id"]
+            isOneToOne: false
             referencedRelation: "v_tunnel_list"
             referencedColumns: ["region_id"]
           },
@@ -6900,6 +6914,13 @@ export type Database = {
             foreignKeyName: "projects_project_type_id_fkey"
             columns: ["project_type_id"]
             isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
+          },
+          {
+            foreignKeyName: "projects_project_type_id_fkey"
+            columns: ["project_type_id"]
+            isOneToOne: false
             referencedRelation: "v_tunnel_list"
             referencedColumns: ["region_id"]
           },
@@ -6972,6 +6993,13 @@ export type Database = {
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_type_id"]
+          },
+          {
+            foreignKeyName: "projects_region_id_fkey"
+            columns: ["region_id"]
+            isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
           },
           {
             foreignKeyName: "projects_region_id_fkey"
@@ -7175,12 +7203,396 @@ export type Database = {
             referencedRelation: "tunnel_risks"
             referencedColumns: ["id"]
           },
+        ]
+      }
+      sections: {
+        Row: {
+          created_at: string | null
+          created_by: string | null
+          deleted_at: string | null
+          deleted_by: string | null
+          id: string
+          is_disabled: boolean
+          line_mode: Database["proj"]["Enums"]["line_mode"] | null
+          name: string
+          project_id: string
+          remark: string | null
+          short_name: string | null
+          sort_order: number
+          type: Database["proj"]["Enums"]["section_type"]
+          updated_at: string | null
+          updated_by: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          created_by?: string | null
+          deleted_at?: string | null
+          deleted_by?: string | null
+          id?: string
+          is_disabled?: boolean
+          line_mode?: Database["proj"]["Enums"]["line_mode"] | null
+          name: string
+          project_id: string
+          remark?: string | null
+          short_name?: string | null
+          sort_order?: number
+          type: Database["proj"]["Enums"]["section_type"]
+          updated_at?: string | null
+          updated_by?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          created_by?: string | null
+          deleted_at?: string | null
+          deleted_by?: string | null
+          id?: string
+          is_disabled?: boolean
+          line_mode?: Database["proj"]["Enums"]["line_mode"] | null
+          name?: string
+          project_id?: string
+          remark?: string | null
+          short_name?: string | null
+          sort_order?: number
+          type?: Database["proj"]["Enums"]["section_type"]
+          updated_at?: string | null
+          updated_by?: string | null
+        }
+        Relationships: [
           {
-            foreignKeyName: "risk_solutions_source_risk_id_fkey"
-            columns: ["source_risk_id"]
+            foreignKeyName: "sections_created_by_fkey"
+            columns: ["created_by"]
             isOneToOne: false
-            referencedRelation: "v_tunnel_risk_overview"
-            referencedColumns: ["risk_id"]
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_chief_engineer_id"]
+          },
+          {
+            foreignKeyName: "sections_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_commercial_manager_id"]
+          },
+          {
+            foreignKeyName: "sections_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_discipline_inspection_id"]
+          },
+          {
+            foreignKeyName: "sections_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_manager_id"]
+          },
+          {
+            foreignKeyName: "sections_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_oversight_leader_id"]
+          },
+          {
+            foreignKeyName: "sections_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_party_secretary_id"]
+          },
+          {
+            foreignKeyName: "sections_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_safety_director_id"]
+          },
+          {
+            foreignKeyName: "sections_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_chief_engineer_id"]
+          },
+          {
+            foreignKeyName: "sections_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_commercial_manager_id"]
+          },
+          {
+            foreignKeyName: "sections_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_discipline_inspection_id"]
+          },
+          {
+            foreignKeyName: "sections_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_manager_id"]
+          },
+          {
+            foreignKeyName: "sections_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_oversight_leader_id"]
+          },
+          {
+            foreignKeyName: "sections_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_party_secretary_id"]
+          },
+          {
+            foreignKeyName: "sections_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_safety_director_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_chief_engineer_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_commercial_manager_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_discipline_inspection_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_manager_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_oversight_leader_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_party_secretary_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_safety_director_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_chief_engineer_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_commercial_manager_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_discipline_inspection_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_manager_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_oversight_leader_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_party_secretary_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_safety_director_id"]
+          },
+          {
+            foreignKeyName: "sections_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "projects"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "sections_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "v_project_contract_module"
+            referencedColumns: ["project_id"]
+          },
+          {
+            foreignKeyName: "sections_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "sections_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "sections_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "v_project_picker"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "sections_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "v_project_schedule_module"
+            referencedColumns: ["project_id"]
+          },
+          {
+            foreignKeyName: "sections_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_chief_engineer_id"]
+          },
+          {
+            foreignKeyName: "sections_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_commercial_manager_id"]
+          },
+          {
+            foreignKeyName: "sections_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_discipline_inspection_id"]
+          },
+          {
+            foreignKeyName: "sections_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_manager_id"]
+          },
+          {
+            foreignKeyName: "sections_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_oversight_leader_id"]
+          },
+          {
+            foreignKeyName: "sections_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_party_secretary_id"]
+          },
+          {
+            foreignKeyName: "sections_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_safety_director_id"]
+          },
+          {
+            foreignKeyName: "sections_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_chief_engineer_id"]
+          },
+          {
+            foreignKeyName: "sections_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_commercial_manager_id"]
+          },
+          {
+            foreignKeyName: "sections_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_discipline_inspection_id"]
+          },
+          {
+            foreignKeyName: "sections_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_manager_id"]
+          },
+          {
+            foreignKeyName: "sections_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_oversight_leader_id"]
+          },
+          {
+            foreignKeyName: "sections_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_party_secretary_id"]
+          },
+          {
+            foreignKeyName: "sections_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_safety_director_id"]
           },
         ]
       }
@@ -7247,36 +7659,7 @@ export type Database = {
           updated_at?: string
           version?: number
         }
-        Relationships: [
-          {
-            foreignKeyName: "tunnel_plans_tunnel_id_fkey"
-            columns: ["tunnel_id"]
-            isOneToOne: false
-            referencedRelation: "tunnels"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "tunnel_plans_tunnel_id_fkey"
-            columns: ["tunnel_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_detail"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "tunnel_plans_tunnel_id_fkey"
-            columns: ["tunnel_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_list"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "tunnel_plans_tunnel_id_fkey"
-            columns: ["tunnel_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_picker"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       tunnel_risks: {
         Row: {
@@ -7340,34 +7723,6 @@ export type Database = {
             columns: ["geo_rock_class_id"]
             isOneToOne: false
             referencedRelation: "geo_rock_classes"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "tunnel_risks_tunnel_id_fkey"
-            columns: ["tunnel_id"]
-            isOneToOne: false
-            referencedRelation: "tunnels"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "tunnel_risks_tunnel_id_fkey"
-            columns: ["tunnel_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_detail"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "tunnel_risks_tunnel_id_fkey"
-            columns: ["tunnel_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_list"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "tunnel_risks_tunnel_id_fkey"
-            columns: ["tunnel_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_picker"
             referencedColumns: ["id"]
           },
         ]
@@ -7619,130 +7974,162 @@ export type Database = {
             referencedColumns: ["project_safety_director_id"]
           },
           {
-            foreignKeyName: "tunnel_schedule_versions_tunnel_id_fkey"
+            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_chief_engineer_id"]
+          },
+          {
+            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_commercial_manager_id"]
+          },
+          {
+            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_discipline_inspection_id"]
+          },
+          {
+            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_manager_id"]
+          },
+          {
+            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_oversight_leader_id"]
+          },
+          {
+            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_party_secretary_id"]
+          },
+          {
+            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_safety_director_id"]
+          },
+          {
+            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_chief_engineer_id"]
+          },
+          {
+            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_commercial_manager_id"]
+          },
+          {
+            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_discipline_inspection_id"]
+          },
+          {
+            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_manager_id"]
+          },
+          {
+            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_oversight_leader_id"]
+          },
+          {
+            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_party_secretary_id"]
+          },
+          {
+            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_safety_director_id"]
+          },
+        ]
+      }
+      tunnel_segments: {
+        Row: {
+          end_ring_no: number
+          id: string
+          inner_diameter: number | null
+          is_disabled: boolean
+          name: string | null
+          outer_diameter: number | null
+          remark: string | null
+          ring_width: number
+          sort_order: number
+          start_ring_no: number
+          thickness: number | null
+          tunnel_id: string
+        }
+        Insert: {
+          end_ring_no: number
+          id?: string
+          inner_diameter?: number | null
+          is_disabled?: boolean
+          name?: string | null
+          outer_diameter?: number | null
+          remark?: string | null
+          ring_width: number
+          sort_order?: number
+          start_ring_no: number
+          thickness?: number | null
+          tunnel_id: string
+        }
+        Update: {
+          end_ring_no?: number
+          id?: string
+          inner_diameter?: number | null
+          is_disabled?: boolean
+          name?: string | null
+          outer_diameter?: number | null
+          remark?: string | null
+          ring_width?: number
+          sort_order?: number
+          start_ring_no?: number
+          thickness?: number | null
+          tunnel_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "tunnel_segments_tunnel_id_fkey"
             columns: ["tunnel_id"]
             isOneToOne: false
             referencedRelation: "tunnels"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "tunnel_schedule_versions_tunnel_id_fkey"
-            columns: ["tunnel_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_detail"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "tunnel_schedule_versions_tunnel_id_fkey"
+            foreignKeyName: "tunnel_segments_tunnel_id_fkey"
             columns: ["tunnel_id"]
             isOneToOne: false
             referencedRelation: "v_tunnel_list"
             referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "tunnel_schedule_versions_tunnel_id_fkey"
-            columns: ["tunnel_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_picker"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
-            columns: ["updated_by"]
-            isOneToOne: false
-            referencedRelation: "v_project_detail"
-            referencedColumns: ["project_chief_engineer_id"]
-          },
-          {
-            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
-            columns: ["updated_by"]
-            isOneToOne: false
-            referencedRelation: "v_project_detail"
-            referencedColumns: ["project_commercial_manager_id"]
-          },
-          {
-            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
-            columns: ["updated_by"]
-            isOneToOne: false
-            referencedRelation: "v_project_detail"
-            referencedColumns: ["project_discipline_inspection_id"]
-          },
-          {
-            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
-            columns: ["updated_by"]
-            isOneToOne: false
-            referencedRelation: "v_project_detail"
-            referencedColumns: ["project_manager_id"]
-          },
-          {
-            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
-            columns: ["updated_by"]
-            isOneToOne: false
-            referencedRelation: "v_project_detail"
-            referencedColumns: ["project_oversight_leader_id"]
-          },
-          {
-            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
-            columns: ["updated_by"]
-            isOneToOne: false
-            referencedRelation: "v_project_detail"
-            referencedColumns: ["project_party_secretary_id"]
-          },
-          {
-            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
-            columns: ["updated_by"]
-            isOneToOne: false
-            referencedRelation: "v_project_detail"
-            referencedColumns: ["project_safety_director_id"]
-          },
-          {
-            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
-            columns: ["updated_by"]
-            isOneToOne: false
-            referencedRelation: "v_project_list"
-            referencedColumns: ["project_chief_engineer_id"]
-          },
-          {
-            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
-            columns: ["updated_by"]
-            isOneToOne: false
-            referencedRelation: "v_project_list"
-            referencedColumns: ["project_commercial_manager_id"]
-          },
-          {
-            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
-            columns: ["updated_by"]
-            isOneToOne: false
-            referencedRelation: "v_project_list"
-            referencedColumns: ["project_discipline_inspection_id"]
-          },
-          {
-            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
-            columns: ["updated_by"]
-            isOneToOne: false
-            referencedRelation: "v_project_list"
-            referencedColumns: ["project_manager_id"]
-          },
-          {
-            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
-            columns: ["updated_by"]
-            isOneToOne: false
-            referencedRelation: "v_project_list"
-            referencedColumns: ["project_oversight_leader_id"]
-          },
-          {
-            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
-            columns: ["updated_by"]
-            isOneToOne: false
-            referencedRelation: "v_project_list"
-            referencedColumns: ["project_party_secretary_id"]
-          },
-          {
-            foreignKeyName: "tunnel_schedule_versions_updated_by_fkey"
-            columns: ["updated_by"]
-            isOneToOne: false
-            referencedRelation: "v_project_list"
-            referencedColumns: ["project_safety_director_id"]
           },
         ]
       }
@@ -7886,34 +8273,6 @@ export type Database = {
             referencedColumns: ["project_safety_director_id"]
           },
           {
-            foreignKeyName: "tunnel_status_timeline_tunnel_id_fkey"
-            columns: ["tunnel_id"]
-            isOneToOne: false
-            referencedRelation: "tunnels"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_id_fkey"
-            columns: ["tunnel_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_detail"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_id_fkey"
-            columns: ["tunnel_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_list"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_id_fkey"
-            columns: ["tunnel_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_picker"
-            referencedColumns: ["id"]
-          },
-          {
             foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
             columns: ["tunnel_status_id"]
             isOneToOne: false
@@ -7982,6 +8341,13 @@ export type Database = {
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_type_id"]
+          },
+          {
+            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
+            columns: ["tunnel_status_id"]
+            isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
           },
           {
             foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
@@ -8092,80 +8458,56 @@ export type Database = {
       }
       tunnels: {
         Row: {
-          actual_end_date: string | null
-          actual_start_date: string | null
-          advance_direction: Database["proj"]["Enums"]["advance_direction"]
+          alias_name: string | null
           created_at: string | null
           created_by: string | null
           deleted_at: string | null
           deleted_by: string | null
           end_chainage: number | null
-          end_ring: number | null
-          full_name: string | null
-          geology: string | null
           id: string
           is_disabled: boolean
-          latitude: number | null
-          longitude: number | null
           name: string
           prefix: string | null
-          project_id: string
           remark: string | null
+          section_id: string
           sort_order: number | null
           start_chainage: number | null
-          start_ring: number
           updated_at: string | null
           updated_by: string | null
         }
         Insert: {
-          actual_end_date?: string | null
-          actual_start_date?: string | null
-          advance_direction?: Database["proj"]["Enums"]["advance_direction"]
+          alias_name?: string | null
           created_at?: string | null
           created_by?: string | null
           deleted_at?: string | null
           deleted_by?: string | null
           end_chainage?: number | null
-          end_ring?: number | null
-          full_name?: string | null
-          geology?: string | null
           id?: string
           is_disabled?: boolean
-          latitude?: number | null
-          longitude?: number | null
           name: string
           prefix?: string | null
-          project_id: string
           remark?: string | null
+          section_id: string
           sort_order?: number | null
           start_chainage?: number | null
-          start_ring?: number
           updated_at?: string | null
           updated_by?: string | null
         }
         Update: {
-          actual_end_date?: string | null
-          actual_start_date?: string | null
-          advance_direction?: Database["proj"]["Enums"]["advance_direction"]
+          alias_name?: string | null
           created_at?: string | null
           created_by?: string | null
           deleted_at?: string | null
           deleted_by?: string | null
           end_chainage?: number | null
-          end_ring?: number | null
-          full_name?: string | null
-          geology?: string | null
           id?: string
           is_disabled?: boolean
-          latitude?: number | null
-          longitude?: number | null
           name?: string
           prefix?: string | null
-          project_id?: string
           remark?: string | null
+          section_id?: string
           sort_order?: number | null
           start_chainage?: number | null
-          start_ring?: number
           updated_at?: string | null
           updated_by?: string | null
         }
@@ -8367,53 +8709,39 @@ export type Database = {
             referencedColumns: ["project_safety_director_id"]
           },
           {
-            foreignKeyName: "tunnels_project_id_fkey"
-            columns: ["project_id"]
+            foreignKeyName: "tunnels_section_id_fkey"
+            columns: ["section_id"]
             isOneToOne: false
-            referencedRelation: "projects"
+            referencedRelation: "sections"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "tunnels_project_id_fkey"
-            columns: ["project_id"]
+            foreignKeyName: "tunnels_section_id_fkey"
+            columns: ["section_id"]
             isOneToOne: false
-            referencedRelation: "v_project_contract_module"
-            referencedColumns: ["project_id"]
-          },
-          {
-            foreignKeyName: "tunnels_project_id_fkey"
-            columns: ["project_id"]
-            isOneToOne: false
-            referencedRelation: "v_project_detail"
+            referencedRelation: "v_section_detail"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "tunnels_project_id_fkey"
-            columns: ["project_id"]
+            foreignKeyName: "tunnels_section_id_fkey"
+            columns: ["section_id"]
             isOneToOne: false
-            referencedRelation: "v_project_list"
+            referencedRelation: "v_section_list"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "tunnels_project_id_fkey"
-            columns: ["project_id"]
+            foreignKeyName: "tunnels_section_id_fkey"
+            columns: ["section_id"]
             isOneToOne: false
-            referencedRelation: "v_project_picker"
+            referencedRelation: "v_section_picker"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "tunnels_project_id_fkey"
-            columns: ["project_id"]
+            foreignKeyName: "tunnels_section_id_fkey"
+            columns: ["section_id"]
             isOneToOne: false
-            referencedRelation: "v_project_schedule_module"
-            referencedColumns: ["project_id"]
-          },
-          {
-            foreignKeyName: "tunnels_project_id_fkey"
-            columns: ["project_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_risk_overview"
-            referencedColumns: ["project_id"]
+            referencedRelation: "v_tunnel_list"
+            referencedColumns: ["section_id"]
           },
           {
             foreignKeyName: "tunnels_updated_by_fkey"
@@ -8672,6 +9000,13 @@ export type Database = {
             foreignKeyName: "project_attention_level_timelin_project_attention_level_id_fkey"
             columns: ["project_attention_level_id"]
             isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
+          },
+          {
+            foreignKeyName: "project_attention_level_timelin_project_attention_level_id_fkey"
+            columns: ["project_attention_level_id"]
+            isOneToOne: false
             referencedRelation: "v_tunnel_list"
             referencedColumns: ["region_id"]
           },
@@ -8749,6 +9084,13 @@ export type Database = {
             foreignKeyName: "project_control_level_timeline_project_control_level_id_fkey"
             columns: ["project_control_level_id"]
             isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
+          },
+          {
+            foreignKeyName: "project_control_level_timeline_project_control_level_id_fkey"
+            columns: ["project_control_level_id"]
+            isOneToOne: false
             referencedRelation: "v_tunnel_list"
             referencedColumns: ["region_id"]
           },
@@ -8821,6 +9163,13 @@ export type Database = {
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_type_id"]
+          },
+          {
+            foreignKeyName: "project_risk_level_timeline_project_risk_level_id_fkey"
+            columns: ["project_risk_level_id"]
+            isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
           },
           {
             foreignKeyName: "project_risk_level_timeline_project_risk_level_id_fkey"
@@ -8964,6 +9313,13 @@ export type Database = {
             foreignKeyName: "project_attention_level_timelin_project_attention_level_id_fkey"
             columns: ["project_attention_level_id"]
             isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
+          },
+          {
+            foreignKeyName: "project_attention_level_timelin_project_attention_level_id_fkey"
+            columns: ["project_attention_level_id"]
+            isOneToOne: false
             referencedRelation: "v_tunnel_list"
             referencedColumns: ["region_id"]
           },
@@ -9041,6 +9397,13 @@ export type Database = {
             foreignKeyName: "project_control_level_timeline_project_control_level_id_fkey"
             columns: ["project_control_level_id"]
             isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
+          },
+          {
+            foreignKeyName: "project_control_level_timeline_project_control_level_id_fkey"
+            columns: ["project_control_level_id"]
+            isOneToOne: false
             referencedRelation: "v_tunnel_list"
             referencedColumns: ["region_id"]
           },
@@ -9113,6 +9476,13 @@ export type Database = {
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_type_id"]
+          },
+          {
+            foreignKeyName: "project_risk_level_timeline_project_risk_level_id_fkey"
+            columns: ["project_risk_level_id"]
+            isOneToOne: false
+            referencedRelation: "v_section_list"
+            referencedColumns: ["region_id"]
           },
           {
             foreignKeyName: "project_risk_level_timeline_project_risk_level_id_fkey"
@@ -9152,227 +9522,315 @@ export type Database = {
         }
         Relationships: []
       }
-      v_tunnel_detail: {
+      v_section_detail: {
         Row: {
-          actual_end_date: string | null
-          actual_start_date: string | null
-          advance_direction:
-            | Database["proj"]["Enums"]["advance_direction"]
-            | null
           created_at: string | null
           created_by: string | null
-          end_chainage: number | null
-          end_ring: number | null
-          geology: string | null
+          deleted_at: string | null
+          deleted_by: string | null
           id: string | null
-          latitude: number | null
-          longitude: number | null
+          is_disabled: boolean | null
+          line_mode: Database["proj"]["Enums"]["line_mode"] | null
           name: string | null
           organization_name: string | null
-          prefix: string | null
           project_name: string | null
+          region_name: string | null
           remark: string | null
-          schedule_end_date: string | null
-          schedule_start_date: string | null
+          short_name: string | null
           sort_order: number | null
-          start_chainage: number | null
-          start_ring: number | null
-          tunnel_status_name: string | null
           updated_at: string | null
           updated_by: string | null
         }
         Relationships: [
           {
-            foreignKeyName: "tunnels_created_by_fkey"
+            foreignKeyName: "sections_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
             referencedRelation: "v_project_detail"
             referencedColumns: ["project_chief_engineer_id"]
           },
           {
-            foreignKeyName: "tunnels_created_by_fkey"
+            foreignKeyName: "sections_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
             referencedRelation: "v_project_detail"
             referencedColumns: ["project_commercial_manager_id"]
           },
           {
-            foreignKeyName: "tunnels_created_by_fkey"
+            foreignKeyName: "sections_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
             referencedRelation: "v_project_detail"
             referencedColumns: ["project_discipline_inspection_id"]
           },
           {
-            foreignKeyName: "tunnels_created_by_fkey"
+            foreignKeyName: "sections_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
             referencedRelation: "v_project_detail"
             referencedColumns: ["project_manager_id"]
           },
           {
-            foreignKeyName: "tunnels_created_by_fkey"
+            foreignKeyName: "sections_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
             referencedRelation: "v_project_detail"
             referencedColumns: ["project_oversight_leader_id"]
           },
           {
-            foreignKeyName: "tunnels_created_by_fkey"
+            foreignKeyName: "sections_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
             referencedRelation: "v_project_detail"
             referencedColumns: ["project_party_secretary_id"]
           },
           {
-            foreignKeyName: "tunnels_created_by_fkey"
+            foreignKeyName: "sections_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
             referencedRelation: "v_project_detail"
             referencedColumns: ["project_safety_director_id"]
           },
           {
-            foreignKeyName: "tunnels_created_by_fkey"
+            foreignKeyName: "sections_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_chief_engineer_id"]
           },
           {
-            foreignKeyName: "tunnels_created_by_fkey"
+            foreignKeyName: "sections_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_commercial_manager_id"]
           },
           {
-            foreignKeyName: "tunnels_created_by_fkey"
+            foreignKeyName: "sections_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_discipline_inspection_id"]
           },
           {
-            foreignKeyName: "tunnels_created_by_fkey"
+            foreignKeyName: "sections_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_manager_id"]
           },
           {
-            foreignKeyName: "tunnels_created_by_fkey"
+            foreignKeyName: "sections_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_oversight_leader_id"]
           },
           {
-            foreignKeyName: "tunnels_created_by_fkey"
+            foreignKeyName: "sections_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_party_secretary_id"]
           },
           {
-            foreignKeyName: "tunnels_created_by_fkey"
+            foreignKeyName: "sections_created_by_fkey"
             columns: ["created_by"]
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_safety_director_id"]
           },
           {
-            foreignKeyName: "tunnels_updated_by_fkey"
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_chief_engineer_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_commercial_manager_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_discipline_inspection_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_manager_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_oversight_leader_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_party_secretary_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
+            referencedColumns: ["project_safety_director_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_chief_engineer_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_commercial_manager_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_discipline_inspection_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_manager_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_oversight_leader_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_party_secretary_id"]
+          },
+          {
+            foreignKeyName: "sections_deleted_by_fkey"
+            columns: ["deleted_by"]
+            isOneToOne: false
+            referencedRelation: "v_project_list"
+            referencedColumns: ["project_safety_director_id"]
+          },
+          {
+            foreignKeyName: "sections_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "v_project_detail"
             referencedColumns: ["project_chief_engineer_id"]
           },
           {
-            foreignKeyName: "tunnels_updated_by_fkey"
+            foreignKeyName: "sections_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "v_project_detail"
             referencedColumns: ["project_commercial_manager_id"]
           },
           {
-            foreignKeyName: "tunnels_updated_by_fkey"
+            foreignKeyName: "sections_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "v_project_detail"
             referencedColumns: ["project_discipline_inspection_id"]
           },
           {
-            foreignKeyName: "tunnels_updated_by_fkey"
+            foreignKeyName: "sections_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "v_project_detail"
             referencedColumns: ["project_manager_id"]
           },
           {
-            foreignKeyName: "tunnels_updated_by_fkey"
+            foreignKeyName: "sections_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "v_project_detail"
             referencedColumns: ["project_oversight_leader_id"]
           },
           {
-            foreignKeyName: "tunnels_updated_by_fkey"
+            foreignKeyName: "sections_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "v_project_detail"
             referencedColumns: ["project_party_secretary_id"]
           },
           {
-            foreignKeyName: "tunnels_updated_by_fkey"
+            foreignKeyName: "sections_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "v_project_detail"
             referencedColumns: ["project_safety_director_id"]
           },
           {
-            foreignKeyName: "tunnels_updated_by_fkey"
+            foreignKeyName: "sections_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_chief_engineer_id"]
           },
           {
-            foreignKeyName: "tunnels_updated_by_fkey"
+            foreignKeyName: "sections_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_commercial_manager_id"]
           },
           {
-            foreignKeyName: "tunnels_updated_by_fkey"
+            foreignKeyName: "sections_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_discipline_inspection_id"]
           },
           {
-            foreignKeyName: "tunnels_updated_by_fkey"
+            foreignKeyName: "sections_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_manager_id"]
           },
           {
-            foreignKeyName: "tunnels_updated_by_fkey"
+            foreignKeyName: "sections_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_oversight_leader_id"]
           },
           {
-            foreignKeyName: "tunnels_updated_by_fkey"
+            foreignKeyName: "sections_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["project_party_secretary_id"]
           },
           {
-            foreignKeyName: "tunnels_updated_by_fkey"
+            foreignKeyName: "sections_updated_by_fkey"
             columns: ["updated_by"]
             isOneToOne: false
             referencedRelation: "v_project_list"
@@ -9380,227 +9838,137 @@ export type Database = {
           },
         ]
       }
-      v_tunnel_list: {
+      v_section_list: {
         Row: {
-          actual_end_date: string | null
-          actual_start_date: string | null
-          advance_direction:
-            | Database["proj"]["Enums"]["advance_direction"]
-            | null
-          end_chainage: number | null
-          end_ring: number | null
-          full_name: string | null
-          geology: string | null
           id: string | null
-          latitude: number | null
-          longitude: number | null
+          is_disabled: boolean | null
+          line_mode: Database["proj"]["Enums"]["line_mode"] | null
           name: string | null
           organization_id: string | null
           organization_name: string | null
-          prefix: string | null
           project_id: string | null
           project_name: string | null
           region_id: string | null
           region_name: string | null
           remark: string | null
-          schedule_end_date: string | null
-          schedule_start_date: string | null
+          short_name: string | null
           sort_order: number | null
-          start_chainage: number | null
-          start_ring: number | null
-          tunnel_status_id: string | null
-          tunnel_status_name: string | null
-          valid_from: string | null
-          valid_to: string | null
-          version_no: number | null
+          type: Database["proj"]["Enums"]["section_type"] | null
         }
         Relationships: [
           {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_project_detail"
-            referencedColumns: ["project_management_mode_id"]
-          },
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_project_detail"
-            referencedColumns: ["project_status_id"]
-          },
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_project_detail"
-            referencedColumns: ["project_sub_status_id"]
-          },
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_project_detail"
-            referencedColumns: ["project_sub_type_id"]
-          },
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_project_detail"
-            referencedColumns: ["project_type_id"]
-          },
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_project_list"
-            referencedColumns: ["project_management_mode_id"]
-          },
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_project_list"
-            referencedColumns: ["project_status_id"]
-          },
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_project_list"
-            referencedColumns: ["project_sub_status_id"]
-          },
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_project_list"
-            referencedColumns: ["project_sub_type_id"]
-          },
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_project_list"
-            referencedColumns: ["project_type_id"]
-          },
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_list"
-            referencedColumns: ["region_id"]
-          },
-          {
-            foreignKeyName: "tunnels_project_id_fkey"
+            foreignKeyName: "sections_project_id_fkey"
             columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "projects"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "tunnels_project_id_fkey"
+            foreignKeyName: "sections_project_id_fkey"
             columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "v_project_contract_module"
             referencedColumns: ["project_id"]
           },
           {
-            foreignKeyName: "tunnels_project_id_fkey"
+            foreignKeyName: "sections_project_id_fkey"
             columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "v_project_detail"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "tunnels_project_id_fkey"
+            foreignKeyName: "sections_project_id_fkey"
             columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "v_project_list"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "tunnels_project_id_fkey"
+            foreignKeyName: "sections_project_id_fkey"
             columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "v_project_picker"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "tunnels_project_id_fkey"
+            foreignKeyName: "sections_project_id_fkey"
             columns: ["project_id"]
             isOneToOne: false
             referencedRelation: "v_project_schedule_module"
             referencedColumns: ["project_id"]
           },
-          {
-            foreignKeyName: "tunnels_project_id_fkey"
-            columns: ["project_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_risk_overview"
-            referencedColumns: ["project_id"]
-          },
         ]
       }
-      v_tunnel_picker: {
+      v_section_picker: {
         Row: {
-          full_name: string | null
           id: string | null
           name: string | null
           project_name: string | null
-          tunnel_status_name: string | null
+          short_name: string | null
         }
         Relationships: []
       }
-      v_tunnel_risk_overview: {
+      v_tunnel_list: {
         Row: {
-          burial_depth: number | null
-          created_at: string | null
-          description: string | null
+          alias_name: string | null
           end_chainage: number | null
-          geo_class_layer: number | null
-          geo_class_name: string | null
-          geo_rock_class_name: string | null
+          id: string | null
+          is_disabled: boolean | null
+          name: string | null
+          prefix: string | null
           project_id: string | null
           project_name: string | null
+          region_id: string | null
           region_name: string | null
-          risk_id: string | null
-          risk_level: number | null
-          risk_name: string | null
+          remark: string | null
+          section_id: string | null
+          section_name: string | null
+          sort_order: number | null
           start_chainage: number | null
-          tunnel_id: string | null
-          tunnel_name: string | null
-          updated_at: string | null
         }
         Relationships: [
           {
-            foreignKeyName: "tunnel_risks_tunnel_id_fkey"
-            columns: ["tunnel_id"]
+            foreignKeyName: "sections_project_id_fkey"
+            columns: ["project_id"]
             isOneToOne: false
-            referencedRelation: "tunnels"
+            referencedRelation: "projects"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "tunnel_risks_tunnel_id_fkey"
-            columns: ["tunnel_id"]
+            foreignKeyName: "sections_project_id_fkey"
+            columns: ["project_id"]
             isOneToOne: false
-            referencedRelation: "v_tunnel_detail"
+            referencedRelation: "v_project_contract_module"
+            referencedColumns: ["project_id"]
+          },
+          {
+            foreignKeyName: "sections_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "v_project_detail"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "tunnel_risks_tunnel_id_fkey"
-            columns: ["tunnel_id"]
+            foreignKeyName: "sections_project_id_fkey"
+            columns: ["project_id"]
             isOneToOne: false
-            referencedRelation: "v_tunnel_list"
+            referencedRelation: "v_project_list"
             referencedColumns: ["id"]
           },
           {
-            foreignKeyName: "tunnel_risks_tunnel_id_fkey"
-            columns: ["tunnel_id"]
+            foreignKeyName: "sections_project_id_fkey"
+            columns: ["project_id"]
             isOneToOne: false
-            referencedRelation: "v_tunnel_picker"
+            referencedRelation: "v_project_picker"
             referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "sections_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "v_project_schedule_module"
+            referencedColumns: ["project_id"]
           },
         ]
       }
@@ -9610,6 +9978,8 @@ export type Database = {
     }
     Enums: {
       advance_direction: "chainage_increase" | "chainage_decrease"
+      line_mode: "single" | "double"
+      section_type: "station" | "tunnel" | "depot" | "other"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -10526,6 +10896,199 @@ export type Database = {
       [_ in never]: never
     }
   }
+  realdata: {
+    Tables: {
+      shield_xre423: {
+        Row: {
+          b000000001: boolean | null
+          b000000002: boolean | null
+          id: number
+          recorded_at: string
+          s010101010: number | null
+          s010102004: number | null
+          s010103006: number | null
+          s010109001: number | null
+          s010111001: number | null
+          s010114003: number | null
+          s011306002: number | null
+          s011311001: number | null
+          s020901001: number | null
+          s020901002: number | null
+          s020901003: number | null
+          s020901004: number | null
+          s020901005: number | null
+          s020901006: number | null
+          s020901007: number | null
+          s020901009: number | null
+          s020901011: number | null
+          s020901013: number | null
+          s020901015: number | null
+          s020906001: number | null
+          s020906002: number | null
+          s020906003: number | null
+          s020906004: number | null
+          s021711001: number | null
+          s050001001: number | null
+          s050001019: number | null
+          s050001020: number | null
+          s050001021: number | null
+          s050001022: number | null
+          s050006005: number | null
+          s050006006: number | null
+          s050006007: number | null
+          s050006008: number | null
+          s050006009: number | null
+          s050006010: number | null
+          s050009003: number | null
+          s050109001: number | null
+          s100100005: number | null
+          s100100006: number | null
+          s100100007: number | null
+          s100100008: number | null
+          s100111009: number | null
+          s100111010: number | null
+          s100111011: number | null
+          s100111012: number | null
+          s100206003: number | null
+          s100206004: number | null
+          s100206006: number | null
+          s100206007: number | null
+          s100206009: number | null
+          s100206010: number | null
+          tbm_code: string
+        }
+        Insert: {
+          b000000001?: boolean | null
+          b000000002?: boolean | null
+          id?: never
+          recorded_at: string
+          s010101010?: number | null
+          s010102004?: number | null
+          s010103006?: number | null
+          s010109001?: number | null
+          s010111001?: number | null
+          s010114003?: number | null
+          s011306002?: number | null
+          s011311001?: number | null
+          s020901001?: number | null
+          s020901002?: number | null
+          s020901003?: number | null
+          s020901004?: number | null
+          s020901005?: number | null
+          s020901006?: number | null
+          s020901007?: number | null
+          s020901009?: number | null
+          s020901011?: number | null
+          s020901013?: number | null
+          s020901015?: number | null
+          s020906001?: number | null
+          s020906002?: number | null
+          s020906003?: number | null
+          s020906004?: number | null
+          s021711001?: number | null
+          s050001001?: number | null
+          s050001019?: number | null
+          s050001020?: number | null
+          s050001021?: number | null
+          s050001022?: number | null
+          s050006005?: number | null
+          s050006006?: number | null
+          s050006007?: number | null
+          s050006008?: number | null
+          s050006009?: number | null
+          s050006010?: number | null
+          s050009003?: number | null
+          s050109001?: number | null
+          s100100005?: number | null
+          s100100006?: number | null
+          s100100007?: number | null
+          s100100008?: number | null
+          s100111009?: number | null
+          s100111010?: number | null
+          s100111011?: number | null
+          s100111012?: number | null
+          s100206003?: number | null
+          s100206004?: number | null
+          s100206006?: number | null
+          s100206007?: number | null
+          s100206009?: number | null
+          s100206010?: number | null
+          tbm_code: string
+        }
+        Update: {
+          b000000001?: boolean | null
+          b000000002?: boolean | null
+          id?: never
+          recorded_at?: string
+          s010101010?: number | null
+          s010102004?: number | null
+          s010103006?: number | null
+          s010109001?: number | null
+          s010111001?: number | null
+          s010114003?: number | null
+          s011306002?: number | null
+          s011311001?: number | null
+          s020901001?: number | null
+          s020901002?: number | null
+          s020901003?: number | null
+          s020901004?: number | null
+          s020901005?: number | null
+          s020901006?: number | null
+          s020901007?: number | null
+          s020901009?: number | null
+          s020901011?: number | null
+          s020901013?: number | null
+          s020901015?: number | null
+          s020906001?: number | null
+          s020906002?: number | null
+          s020906003?: number | null
+          s020906004?: number | null
+          s021711001?: number | null
+          s050001001?: number | null
+          s050001019?: number | null
+          s050001020?: number | null
+          s050001021?: number | null
+          s050001022?: number | null
+          s050006005?: number | null
+          s050006006?: number | null
+          s050006007?: number | null
+          s050006008?: number | null
+          s050006009?: number | null
+          s050006010?: number | null
+          s050009003?: number | null
+          s050109001?: number | null
+          s100100005?: number | null
+          s100100006?: number | null
+          s100100007?: number | null
+          s100100008?: number | null
+          s100111009?: number | null
+          s100111010?: number | null
+          s100111011?: number | null
+          s100111012?: number | null
+          s100206003?: number | null
+          s100206004?: number | null
+          s100206006?: number | null
+          s100206007?: number | null
+          s100206009?: number | null
+          s100206010?: number | null
+          tbm_code?: string
+        }
+        Relationships: []
+      }
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      [_ in never]: never
+    }
+    Enums: {
+      [_ in never]: never
+    }
+    CompositeTypes: {
+      [_ in never]: never
+    }
+  }
   runtime: {
     Tables: {
       parameter_alarm_history: {
@@ -10818,180 +11381,6 @@ export type Database = {
       }
     }
     Views: {
-      v_parameter_alarms: {
-        Row: {
-          alarm_value: number | null
-          chainage: number | null
-          id: string | null
-          parameter_code: string | null
-          parameter_name: string | null
-          project_id: string | null
-          project_name: string | null
-          region_id: string | null
-          region_name: string | null
-          ring_no: number | null
-          severity: Database["tbm"]["Enums"]["alarm_severity"] | null
-          tbm_code: string | null
-          tunnel_id: string | null
-          tunnel_name: string | null
-          unit: string | null
-          updated_at: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "projects_region_id_fkey"
-            columns: ["region_id"]
-            isOneToOne: false
-            referencedRelation: "v_tbm_assignment"
-            referencedColumns: ["region_id"]
-          },
-          {
-            foreignKeyName: "projects_region_id_fkey"
-            columns: ["region_id"]
-            isOneToOne: false
-            referencedRelation: "v_tbm_assignments"
-            referencedColumns: ["region_id"]
-          },
-          {
-            foreignKeyName: "projects_region_id_fkey"
-            columns: ["region_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_progress_summary"
-            referencedColumns: ["region_id"]
-          },
-          {
-            foreignKeyName: "tunnels_project_id_fkey"
-            columns: ["project_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_risk_states"
-            referencedColumns: ["project_id"]
-          },
-        ]
-      }
-      v_tbm_assignment: {
-        Row: {
-          actual_end_date: string | null
-          actual_start_date: string | null
-          advance_direction:
-            | Database["proj"]["Enums"]["advance_direction"]
-            | null
-          end_chainage: number | null
-          end_ring: number | null
-          latitude: number | null
-          longitude: number | null
-          organization_id: string | null
-          organization_name: string | null
-          project_id: string | null
-          project_name: string | null
-          region_id: string | null
-          region_name: string | null
-          schedule_end_date: string | null
-          schedule_start_date: string | null
-          sort_order: number | null
-          start_chainage: number | null
-          start_ring: number | null
-          tbm_code: string | null
-          tbm_name: string | null
-          tbm_type_name: string | null
-          tunnel_full_name: string | null
-          tunnel_id: string | null
-          tunnel_name: string | null
-          tunnel_status_id: string | null
-          tunnel_status_name: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_tbm_assignment"
-            referencedColumns: ["region_id"]
-          },
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_tbm_assignments"
-            referencedColumns: ["region_id"]
-          },
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_progress_summary"
-            referencedColumns: ["region_id"]
-          },
-          {
-            foreignKeyName: "tunnels_project_id_fkey"
-            columns: ["project_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_risk_states"
-            referencedColumns: ["project_id"]
-          },
-        ]
-      }
-      v_tbm_assignments: {
-        Row: {
-          actual_end_date: string | null
-          actual_start_date: string | null
-          advance_direction:
-            | Database["proj"]["Enums"]["advance_direction"]
-            | null
-          end_chainage: number | null
-          end_ring: number | null
-          latitude: number | null
-          longitude: number | null
-          organization_id: string | null
-          organization_name: string | null
-          project_id: string | null
-          project_name: string | null
-          region_id: string | null
-          region_name: string | null
-          schedule_end_date: string | null
-          schedule_start_date: string | null
-          sort_order: number | null
-          start_chainage: number | null
-          start_ring: number | null
-          tbm_code: string | null
-          tbm_name: string | null
-          tbm_type_name: string | null
-          tunnel_full_name: string | null
-          tunnel_id: string | null
-          tunnel_name: string | null
-          tunnel_status_id: string | null
-          tunnel_status_name: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_tbm_assignment"
-            referencedColumns: ["region_id"]
-          },
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_tbm_assignments"
-            referencedColumns: ["region_id"]
-          },
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_progress_summary"
-            referencedColumns: ["region_id"]
-          },
-          {
-            foreignKeyName: "tunnels_project_id_fkey"
-            columns: ["project_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_risk_states"
-            referencedColumns: ["project_id"]
-          },
-        ]
-      }
       v_tbm_daily_progress: {
         Row: {
           chainage_end: number | null
@@ -11027,143 +11416,6 @@ export type Database = {
           updated_at: string | null
         }
         Relationships: []
-      }
-      v_tunnel_progress_summary: {
-        Row: {
-          actual_end_date: string | null
-          actual_start_date: string | null
-          advance_direction:
-            | Database["proj"]["Enums"]["advance_direction"]
-            | null
-          completed_length: number | null
-          completed_ring_count: number | null
-          current_work_date: string | null
-          end_chainage: number | null
-          end_ring: number | null
-          latest_chainage: number | null
-          latest_ring_no: number | null
-          month_advance_meter: number | null
-          month_plan_advance_meter: number | null
-          month_plan_ring_count: number | null
-          month_ring_count: number | null
-          month_start_work_date: string | null
-          progress_updated_at: string | null
-          project_id: string | null
-          project_name: string | null
-          refreshed_at: string | null
-          region_id: string | null
-          region_name: string | null
-          schedule_end_date: string | null
-          schedule_start_date: string | null
-          sort_order: number | null
-          start_chainage: number | null
-          start_ring: number | null
-          tbm_code: string | null
-          tbm_name: string | null
-          today_advance_meter: number | null
-          today_plan_advance_meter: number | null
-          today_plan_ring_count: number | null
-          today_ring_count: number | null
-          tunnel_full_name: string | null
-          tunnel_id: string | null
-          tunnel_name: string | null
-          tunnel_status_id: string | null
-          tunnel_status_name: string | null
-          week_advance_meter: number | null
-          week_plan_advance_meter: number | null
-          week_plan_ring_count: number | null
-          week_ring_count: number | null
-          week_start_work_date: string | null
-          year_advance_meter: number | null
-          year_plan_advance_meter: number | null
-          year_plan_ring_count: number | null
-          year_ring_count: number | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_tbm_assignment"
-            referencedColumns: ["region_id"]
-          },
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_tbm_assignments"
-            referencedColumns: ["region_id"]
-          },
-          {
-            foreignKeyName: "tunnel_status_timeline_tunnel_status_id_fkey"
-            columns: ["tunnel_status_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_progress_summary"
-            referencedColumns: ["region_id"]
-          },
-          {
-            foreignKeyName: "tunnels_project_id_fkey"
-            columns: ["project_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_risk_states"
-            referencedColumns: ["project_id"]
-          },
-        ]
-      }
-      v_tunnel_risk_states: {
-        Row: {
-          burial_depth: number | null
-          created_at: string | null
-          description: string | null
-          end_chainage: number | null
-          enter_distance: number | null
-          exit_distance: number | null
-          geo_class_layer: number | null
-          geo_class_name: string | null
-          geo_rock_class_name: string | null
-          project_id: string | null
-          project_name: string | null
-          region_name: string | null
-          risk_id: string | null
-          risk_level: number | null
-          risk_name: string | null
-          start_chainage: number | null
-          tbm_code: string | null
-          tbm_name: string | null
-          tunnel_id: string | null
-          tunnel_name: string | null
-          updated_at: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "tunnel_risks_tunnel_id_fkey"
-            columns: ["tunnel_id"]
-            isOneToOne: false
-            referencedRelation: "v_parameter_alarms"
-            referencedColumns: ["tunnel_id"]
-          },
-          {
-            foreignKeyName: "tunnel_risks_tunnel_id_fkey"
-            columns: ["tunnel_id"]
-            isOneToOne: false
-            referencedRelation: "v_tbm_assignment"
-            referencedColumns: ["tunnel_id"]
-          },
-          {
-            foreignKeyName: "tunnel_risks_tunnel_id_fkey"
-            columns: ["tunnel_id"]
-            isOneToOne: false
-            referencedRelation: "v_tbm_assignments"
-            referencedColumns: ["tunnel_id"]
-          },
-          {
-            foreignKeyName: "tunnel_risks_tunnel_id_fkey"
-            columns: ["tunnel_id"]
-            isOneToOne: false
-            referencedRelation: "v_tunnel_progress_summary"
-            referencedColumns: ["tunnel_id"]
-          },
-        ]
       }
     }
     Functions: {
@@ -12209,6 +12461,8 @@ export type Database = {
           parameter_code: string
           remark: string | null
           tbm_code: string
+          value_max: number | null
+          value_min: number | null
         }
         Insert: {
           custom_name?: string | null
@@ -12218,6 +12472,8 @@ export type Database = {
           parameter_code: string
           remark?: string | null
           tbm_code: string
+          value_max?: number | null
+          value_min?: number | null
         }
         Update: {
           custom_name?: string | null
@@ -12227,6 +12483,8 @@ export type Database = {
           parameter_code?: string
           remark?: string | null
           tbm_code?: string
+          value_max?: number | null
+          value_min?: number | null
         }
         Relationships: [
           {
@@ -12355,6 +12613,86 @@ export type Database = {
           updated_by?: string | null
         }
         Relationships: []
+      }
+      tunnel_parameter_threshold_rules: {
+        Row: {
+          end_chainage: number | null
+          end_ring_no: number | null
+          id: number
+          max_value: number | null
+          min_value: number | null
+          parameter_code: string
+          reference_value: number | null
+          remark: string | null
+          severity: Database["tbm"]["Enums"]["alarm_severity"]
+          start_chainage: number | null
+          start_ring_no: number | null
+          threshold_type: Database["tbm"]["Enums"]["threshold_type"]
+          threshold_value: number | null
+          tunnel_id: string
+        }
+        Insert: {
+          end_chainage?: number | null
+          end_ring_no?: number | null
+          id?: number
+          max_value?: number | null
+          min_value?: number | null
+          parameter_code: string
+          reference_value?: number | null
+          remark?: string | null
+          severity: Database["tbm"]["Enums"]["alarm_severity"]
+          start_chainage?: number | null
+          start_ring_no?: number | null
+          threshold_type: Database["tbm"]["Enums"]["threshold_type"]
+          threshold_value?: number | null
+          tunnel_id: string
+        }
+        Update: {
+          end_chainage?: number | null
+          end_ring_no?: number | null
+          id?: number
+          max_value?: number | null
+          min_value?: number | null
+          parameter_code?: string
+          reference_value?: number | null
+          remark?: string | null
+          severity?: Database["tbm"]["Enums"]["alarm_severity"]
+          start_chainage?: number | null
+          start_ring_no?: number | null
+          threshold_type?: Database["tbm"]["Enums"]["threshold_type"]
+          threshold_value?: number | null
+          tunnel_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "tunnel_parameter_threshold_rules_parameter_code_fkey"
+            columns: ["parameter_code"]
+            isOneToOne: false
+            referencedRelation: "parameters"
+            referencedColumns: ["code"]
+          },
+          {
+            foreignKeyName: "tunnel_parameter_threshold_rules_parameter_code_fkey"
+            columns: ["parameter_code"]
+            isOneToOne: false
+            referencedRelation: "v_parameter_template_items"
+            referencedColumns: ["code"]
+          },
+          {
+            foreignKeyName: "tunnel_parameter_threshold_rules_parameter_code_fkey"
+            columns: ["parameter_code"]
+            isOneToOne: false
+            referencedRelation: "v_parameters_list"
+            referencedColumns: ["code"]
+          },
+          {
+            foreignKeyName: "tunnel_parameter_threshold_rules_parameter_code_fkey"
+            columns: ["parameter_code"]
+            isOneToOne: false
+            referencedRelation: "v_parameters_picker"
+            referencedColumns: ["code"]
+          },
+        ]
       }
     }
     Views: {
@@ -12530,50 +12868,6 @@ export type Database = {
         }
         Relationships: []
       }
-      v_tbm_assignment_list: {
-        Row: {
-          end_date: string | null
-          id: string | null
-          project_id: string | null
-          project_name: string | null
-          remark: string | null
-          start_date: string | null
-          tbm_code: string | null
-          tbm_name: string | null
-          tunnel_id: string | null
-          tunnel_name: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "tbm_assignments_tbm_code_fkey"
-            columns: ["tbm_code"]
-            isOneToOne: false
-            referencedRelation: "tbms"
-            referencedColumns: ["code"]
-          },
-          {
-            foreignKeyName: "tbm_assignments_tbm_code_fkey"
-            columns: ["tbm_code"]
-            isOneToOne: false
-            referencedRelation: "v_tbm_detail"
-            referencedColumns: ["code"]
-          },
-          {
-            foreignKeyName: "tbm_assignments_tbm_code_fkey"
-            columns: ["tbm_code"]
-            isOneToOne: false
-            referencedRelation: "v_tbm_list"
-            referencedColumns: ["code"]
-          },
-          {
-            foreignKeyName: "tbm_assignments_tbm_code_fkey"
-            columns: ["tbm_code"]
-            isOneToOne: false
-            referencedRelation: "v_tbm_picker"
-            referencedColumns: ["code"]
-          },
-        ]
-      }
       v_tbm_detail: {
         Row: {
           code: string | null
@@ -12640,6 +12934,8 @@ export type Database = {
           subsystem_name: string | null
           tbm_code: string | null
           unit: string | null
+          value_max: number | null
+          value_min: number | null
         }
         Relationships: [
           {
@@ -12927,12 +13223,17 @@ export const Constants = {
   proj: {
     Enums: {
       advance_direction: ["chainage_increase", "chainage_decrease"],
+      line_mode: ["single", "double"],
+      section_type: ["station", "tunnel", "depot", "other"],
     },
   },
   public: {
     Enums: {},
   },
   rbac: {
+    Enums: {},
+  },
+  realdata: {
     Enums: {},
   },
   runtime: {

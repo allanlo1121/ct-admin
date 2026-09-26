@@ -1,3 +1,5 @@
+
+
 export interface MasterData {
   id: string;
   name: string;
@@ -5,3 +7,5 @@ export interface MasterData {
   description: string;
   is_disabled: boolean;
 }
+
+

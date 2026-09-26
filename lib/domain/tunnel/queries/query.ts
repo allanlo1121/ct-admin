@@ -2,7 +2,7 @@ import { z } from "zod";
 import { createListQuerySchema } from "@/lib/shared/query/query-factory";
 
 export const tunnelQuery = createListQuerySchema({
-  sortFields: ["name", "sortOrder", "createdAt"] as const,
+  sortFields: ["sortOrder", "createdAt"] as const,
 
   map: {
     name: "name",
@@ -10,7 +10,7 @@ export const tunnelQuery = createListQuerySchema({
     createdAt: "created_at",
   },
   extra: {
-    organizationId: z.string().optional(),
+    projectId: z.string().optional(),
 
     includeChildren: z
       .string()

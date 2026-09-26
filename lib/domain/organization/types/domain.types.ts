@@ -1,5 +1,6 @@
 import { Camelize } from "@/lib/shared/utils/case-converter";
 import { OrganizationDetailRow, OrganizationRow } from "./db.types";
+import { EntityRef } from "@/lib/types";
 
 export type OrganizationDetail = Camelize<OrganizationDetailRow>;
 
@@ -60,3 +61,5 @@ export type OrganizationFormModel = {
   latitude?: number;
   longitude?: number;
 };
+
+export type OrganizationRef = EntityRef

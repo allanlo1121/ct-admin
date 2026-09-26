@@ -24,6 +24,7 @@ export const tableEntities = [
   "organizations",
   "employees",
   "projects",
+  "sections",
   "tunnels",
   "tbms",
   // "tbm_parameter_configs",

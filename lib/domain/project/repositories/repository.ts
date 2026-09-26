@@ -4,7 +4,7 @@ import { appErrors, PaginatedResult } from "@/lib/shared/contracts";
 import { applyPagination, assertNoError } from "@/lib/infra/repositories/base.repository";
 
 import { projectQuery, ProjectQueryType } from "../queries";
-import { Project, ProjectDetail, ProjectListItem, ProjectListRow } from "../types";
+import { Project, ProjectDetail, ProjectListItem, ProjectListRow, ProjectRef } from "../types";
 import {
   mapProject,
   mapProjectListItem,
@@ -99,6 +99,7 @@ export const projectRepository = {
   getAllList: getAllProjectList,
   paginate,
   softDeleteMany: softDeleteManyProject,
+  fetchRefs,
 };
 
 export async function getAllProjectList(): Promise<ProjectListRow[]> {
@@ -178,4 +179,14 @@ async function findDetailById(id: string): Promise<ProjectDetail | null> {
   assertNoError(error);
 
   return data ? mapProjectDetail(data) : null;
+}
+
+async function fetchRefs(): Promise<ProjectRef[]> {
+  const supabase = await createClient();
+
+  const { data, error } = await supabase.schema("proj").from("projects").select("id,name");
+
+  assertNoError(error);
+
+  return data as ProjectRef[];
 }

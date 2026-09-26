@@ -1,146 +1,130 @@
 import { CreateTunnelFullInput, CreateTunnelInput, UpdateTunnelInput } from "../schemas";
 import {
+  AdvanceDirectionEnumRow,
   Tunnel,
-  TunnelDetail,
-  TunnelDetailRow,
   TunnelInsertRow,
   TunnelListItem,
   TunnelListRow,
   TunnelRow,
   TunnelUpdateRow,
 } from "../types";
-
-export function mapTunnelList(row: TunnelListRow): TunnelListItem {
-  return {
-    id: row.id!,
-    name: row.name!,
-    fullName: row.full_name,
-
-    projectId: row.project_id,
-    projectName: row.project_name,
-    organizationId: row.organization_id,
-    organizationName: row.organization_name,
-    regionId: row.region_id,
-    regionName: row.region_name,
-
-    prefix: row.prefix,
-    startChainage: row.start_chainage,
-    endChainage: row.end_chainage,
-    advanceDirection: row.advance_direction,
-    startRing: row.start_ring,
-    endRing: row.end_ring,
-
-    actualEndDate: row.actual_end_date,
-    actualStartDate: row.actual_start_date,
-
-    geology: row.geology,
-    latitude: row.latitude,
-    longitude: row.longitude,
-
-    sortOrder: row.sort_order,
-    remark: row.remark,
-
-    scheduleEndDate: row.schedule_end_date,
-    scheduleStartDate: row.schedule_start_date,
-
-    tunnelStatusId: row.tunnel_status_id,
-    tunnelStatusName: row.tunnel_status_name,
-    validFrom: row.valid_from,
-    validTo: row.valid_to,
-    versionNo: row.version_no,
-  };
-}
+import { AdvanceDirection } from "../types";
 
 export function mapTunnelListItem(row: TunnelListRow): TunnelListItem {
   return {
     id: row.id!,
     name: row.name!,
-    fullName: row.full_name,
-    tunnelStatusId: row.tunnel_status_id,
-    tunnelStatusName: row.tunnel_status_name,
-    validFrom: row.valid_from,
-    validTo: row.valid_to,
-    organizationId: row.organization_id,
-    organizationName: row.organization_name,
-    projectId: row.project_id,
-    projectName: row.project_name,
-    regionId: row.region_id,
-    regionName: row.region_name,
+    aliasName: row.alias_name,
+
+    region: {
+      id: row.region_id!,
+      name: row.region_name!,
+    },
+
+    project: {
+      id: row.project_id!,
+      name: row.project_name!,
+    },
+    section: {
+      id: row.section_id!,
+      name: row.section_name!,
+    },
     prefix: row.prefix,
-    startRing: row.start_ring,
-    endRing: row.end_ring,
     startChainage: row.start_chainage,
     endChainage: row.end_chainage,
-    advanceDirection: row.advance_direction,
 
-    actualEndDate: row.actual_end_date,
-    actualStartDate: row.actual_start_date,
-    versionNo: row.version_no,
-    scheduleEndDate: row.schedule_end_date,
-    scheduleStartDate: row.schedule_start_date,
-
-    geology: row.geology,
-    latitude: row.latitude,
-    longitude: row.longitude,
 
     sortOrder: row.sort_order,
     remark: row.remark,
+    isDisabled: row.is_disabled!,
+
+
+
+
   };
 }
 
-export function mapTunnel(row: TunnelRow): Tunnel {
-  return {
-    id: row.id,
-    name: row.name,
-    fullName: row.full_name,
+// export function mapTunnelListItem(row: TunnelListRow): TunnelListItem {
+//   return {
+//     id: row.id!,
+//     name: row.name!,
+//     fullName: row.full_name,
+//     tunnelStatusId: row.tunnel_status_id,
+//     tunnelStatusName: row.tunnel_status_name,
+//     validFrom: row.valid_from,
+//     validTo: row.valid_to,
+//     organizationId: row.organization_id,
+//     organizationName: row.organization_name,
+//     projectId: row.project_id,
+//     projectName: row.project_name,
+//     regionId: row.region_id,
+//     regionName: row.region_name,
+//     prefix: row.prefix,
+//     startRing: row.start_ring,
+//     endRing: row.end_ring,
+//     startChainage: row.start_chainage,
+//     endChainage: row.end_chainage,
+//     advanceDirection: row.advance_direction,
 
-    projectId: row.project_id,
-    prefix: row.prefix,
-    startRing: row.start_ring,
-    endRing: row.end_ring,
-    startChainage: row.start_chainage,
-    endChainage: row.end_chainage,
-    advanceDirection: row.advance_direction,
+//     actualEndDate: row.actual_end_date,
+//     actualStartDate: row.actual_start_date,
+//     versionNo: row.version_no,
+//     scheduleEndDate: row.schedule_end_date,
+//     scheduleStartDate: row.schedule_start_date,
 
-    actualEndDate: row.actual_end_date,
-    actualStartDate: row.actual_start_date,
+//     geology: row.geology,
+//     latitude: row.latitude,
+//     longitude: row.longitude,
 
-    geology: row.geology,
-    latitude: row.latitude,
-    longitude: row.longitude,
+//     sortOrder: row.sort_order,
+//     remark: row.remark,
+//   };
+// }
 
-    sortOrder: row.sort_order,
-    isDisabled: row.is_disabled,
-    remark: row.remark,
-    createdAt: row.created_at,
-    updatedAt: row.updated_at,
-    deletedAt: row.deleted_at,
+// export function mapTunnel(row: TunnelRow): Tunnel {
+//   return {
+//     id: row.id,
+//     name: row.name,
+//     fullName: row.full_name,
 
-    createdBy: row.created_by,
-    updatedBy: row.updated_by,
-    deletedBy: row.deleted_by,
-  };
-}
+//     projectId: row.project_id,
+//     prefix: row.prefix,
+//     startRing: row.start_ring,
+//     endRing: row.end_ring,
+//     startChainage: row.start_chainage,
+//     endChainage: row.end_chainage,
+//     advanceDirection: row.advance_direction,
+
+//     actualEndDate: row.actual_end_date,
+//     actualStartDate: row.actual_start_date,
+
+//     geology: row.geology,
+//     latitude: row.latitude,
+//     longitude: row.longitude,
+
+//     sortOrder: row.sort_order,
+//     isDisabled: row.is_disabled,
+//     remark: row.remark,
+//     createdAt: row.created_at,
+//     updatedAt: row.updated_at,
+//     deletedAt: row.deleted_at,
+
+//     createdBy: row.created_by,
+//     updatedBy: row.updated_by,
+//     deletedBy: row.deleted_by,
+//   };
+// }
 
 export function mapTunnelUpdate(input: UpdateTunnelInput): TunnelUpdateRow {
   return {
-    id: input.id,
     name: input.name,
-    full_name: input.fullName,
+    alias_name: input.aliasName,
 
-    project_id: input.projectId,
+    section_id: input.sectionId,
     prefix: input.prefix,
-    start_ring: input.startRing,
-    end_ring: input.endRing,
+
     start_chainage: input.startChainage,
     end_chainage: input.endChainage,
-
-    actual_end_date: input.actualEndDate,
-    actual_start_date: input.actualStartDate,
-
-    geology: input.geology,
-    latitude: input.latitude,
-    longitude: input.longitude,
 
     sort_order: input.sortOrder,
     is_disabled: input.isDisabled,
@@ -151,21 +135,13 @@ export function mapTunnelUpdate(input: UpdateTunnelInput): TunnelUpdateRow {
 export function mapTunnelInsert(input: CreateTunnelInput): TunnelInsertRow {
   return {
     name: input.name,
-    full_name: input.fullName,
+    alias_name: input.aliasName,
 
-    project_id: input.projectId,
+    section_id: input.sectionId,
     prefix: input.prefix,
-    start_ring: input.startRing,
-    end_ring: input.endRing,
+
     start_chainage: input.startChainage,
     end_chainage: input.endChainage,
-
-    actual_end_date: input.actualEndDate,
-    actual_start_date: input.actualStartDate,
-
-    geology: input.geology,
-    latitude: input.latitude,
-    longitude: input.longitude,
 
     sort_order: input.sortOrder,
     is_disabled: input.isDisabled,
@@ -173,62 +149,85 @@ export function mapTunnelInsert(input: CreateTunnelInput): TunnelInsertRow {
   };
 }
 
-export function mapCreateTunnelInputFromTunnelFullInput(
-  input: CreateTunnelFullInput
-): CreateTunnelInput {
-  return {
-    name: input.name,
-    fullName: input.fullName,
+// export function mapCreateTunnelInputFromTunnelFullInput(
+//   input: CreateTunnelFullInput
+// ): CreateTunnelInput {
+//   return {
+//     name: input.name,
+//     fullName: input.fullName,
 
-    projectId: input.projectId,
-    prefix: input.prefix,
-    startRing: input.startRing,
-    endRing: input.endRing,
-    startChainage: input.startChainage,
-    endChainage: input.endChainage,
+//     projectId: input.projectId,
+//     prefix: input.prefix,
+//     startRing: input.startRing,
+//     endRing: input.endRing,
+//     startChainage: input.startChainage,
+//     endChainage: input.endChainage,
 
-    actualEndDate: input.actualEndDate,
-    actualStartDate: input.actualStartDate,
+//     actualEndDate: input.actualEndDate,
+//     actualStartDate: input.actualStartDate,
 
-    geology: input.geology,
-    latitude: input.latitude,
-    longitude: input.longitude,
+//     geology: input.geology,
+//     latitude: input.latitude,
+//     longitude: input.longitude,
 
-    sortOrder: input.sortOrder,
-    isDisabled: input.isDisabled,
-    remark: input.remark,
-  };
+//     sortOrder: input.sortOrder,
+//     isDisabled: input.isDisabled,
+//     remark: input.remark,
+//   };
+// }
+
+// export function mapTunnelDetail(row: TunnelDetailRow): TunnelDetail {
+//   return {
+//     id: row.id,
+//     name: row.name,
+//     tunnelStatusName: row.tunnel_status_name,
+//     projectName: row.project_name,
+//     organizationName: row.organization_name,
+//     prefix: row.prefix,
+//     startRing: row.start_ring,
+//     endRing: row.end_ring,
+//     startChainage: row.start_chainage,
+//     endChainage: row.end_chainage,
+//     advanceDirection: row.advance_direction,
+
+//     actualEndDate: row.actual_end_date,
+//     actualStartDate: row.actual_start_date,
+//     scheduleEndDate: row.schedule_end_date,
+//     scheduleStartDate: row.schedule_start_date,
+
+//     geology: row.geology,
+//     latitude: row.latitude,
+//     longitude: row.longitude,
+
+//     sortOrder: row.sort_order,
+
+//     remark: row.remark,
+//     createdAt: row.created_at,
+//     updatedAt: row.updated_at,
+//     createdBy: row.created_by,
+//     updatedBy: row.updated_by,
+//   };
+// }
+
+
+export function toAdvanceDirectionRow(
+  type: AdvanceDirection
+): AdvanceDirectionEnumRow {
+  switch (type) {
+    case "chainageIncrease":
+      return "chainage_increase"
+    case "chainageDecrease":
+      return "chainage_decrease"
+  }
 }
 
-export function mapTunnelDetail(row: TunnelDetailRow): TunnelDetail {
-  return {
-    id: row.id,
-    name: row.name,
-    tunnelStatusName: row.tunnel_status_name,
-    projectName: row.project_name,
-    organizationName: row.organization_name,
-    prefix: row.prefix,
-    startRing: row.start_ring,
-    endRing: row.end_ring,
-    startChainage: row.start_chainage,
-    endChainage: row.end_chainage,
-    advanceDirection: row.advance_direction,
-
-    actualEndDate: row.actual_end_date,
-    actualStartDate: row.actual_start_date,
-    scheduleEndDate: row.schedule_end_date,
-    scheduleStartDate: row.schedule_start_date,
-
-    geology: row.geology,
-    latitude: row.latitude,
-    longitude: row.longitude,
-
-    sortOrder: row.sort_order,
-
-    remark: row.remark,
-    createdAt: row.created_at,
-    updatedAt: row.updated_at,
-    createdBy: row.created_by,
-    updatedBy: row.updated_by,
-  };
+export function toAdvanceDirectionDomain(
+  type: AdvanceDirectionEnumRow
+): AdvanceDirection {
+  switch (type) {
+    case "chainage_increase":
+      return "chainageIncrease"
+    case "chainage_decrease":
+      return "chainageDecrease"
+  }
 }

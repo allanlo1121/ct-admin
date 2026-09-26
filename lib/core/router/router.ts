@@ -41,7 +41,13 @@ export const routes = {
     detail: (id: string) => `/proj/projects/${id}`,
     edit: (id: string) => `/proj/projects/${id}/edit`,
   },
-
+  sections: {
+    list: "/proj/sections",
+    create: "/proj/sections/create",
+    import: "/proj/sections/import",
+    detail: (id: string) => `/proj/sections/${id}`,
+    edit: (id: string) => `/proj/sections/${id}/edit`,
+  },
   tunnels: {
     list: "/proj/tunnels",
     create: "/proj/tunnels/create",
