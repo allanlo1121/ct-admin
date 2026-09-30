@@ -2,9 +2,9 @@
 
 import { useRouter } from "next/navigation";
 import { DataTable } from "@/components/data-table/data-table";
-import { tunnelColumns } from "../components/data-table-columns";
+import { tunnelSegmentColumns } from "./data-table-columns";
 
-export function TunnelTableClient(props: {
+export function TunnelSegmentTableClient(props: {
   items: any[];
   total: number;
   page: number;
@@ -16,7 +16,7 @@ export function TunnelTableClient(props: {
 
   return (
     <DataTable
-      columns={tunnelColumns}
+      columns={tunnelSegmentColumns}
       data={props.items}
       total={props.total}
       page={props.page}

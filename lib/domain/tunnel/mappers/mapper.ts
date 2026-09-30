@@ -1,11 +1,10 @@
-import { CreateTunnelFullInput, CreateTunnelInput, UpdateTunnelInput } from "../schemas";
+import { CreateTunnelInput, UpdateTunnelInput } from "../schemas";
 import {
   AdvanceDirectionEnumRow,
-  Tunnel,
+  TunnelDetail,
   TunnelInsertRow,
   TunnelListItem,
   TunnelListRow,
-  TunnelRow,
   TunnelUpdateRow,
 } from "../types";
 import { AdvanceDirection } from "../types";
@@ -30,11 +29,48 @@ export function mapTunnelListItem(row: TunnelListRow): TunnelListItem {
       name: row.section_name!,
     },
     prefix: row.prefix,
-    startChainage: row.start_chainage,
-    endChainage: row.end_chainage,
+    startChainage: row.start_chainage ?? 0,
+    endChainage: row.end_chainage ?? 0,
+    adjustment: row.adjustment ?? 0,
 
 
-    sortOrder: row.sort_order,
+    sortOrder: row.sort_order ?? 1,
+    remark: row.remark,
+    isDisabled: row.is_disabled!,
+
+
+
+
+  };
+}
+
+
+export function mapTunnelDetail(row: TunnelListRow): TunnelDetail {
+  return {
+    id: row.id!,
+    name: row.name!,
+    aliasName: row.alias_name,
+
+    region: {
+      id: row.region_id!,
+      name: row.region_name!,
+    },
+
+    project: {
+      id: row.project_id!,
+      name: row.project_name!,
+    },
+    section: {
+      id: row.section_id!,
+      name: row.section_name!,
+    },
+    prefix: row.prefix,
+    startChainage: row.start_chainage ?? 0,
+    endChainage: row.end_chainage ?? 0,
+    adjustment: row.adjustment ?? 0,
+
+
+    sortOrder: row.sort_order ?? 1,
     remark: row.remark,
     isDisabled: row.is_disabled!,
 
@@ -125,6 +161,7 @@ export function mapTunnelUpdate(input: UpdateTunnelInput): TunnelUpdateRow {
 
     start_chainage: input.startChainage,
     end_chainage: input.endChainage,
+    adjustment: input.adjustment,
 
     sort_order: input.sortOrder,
     is_disabled: input.isDisabled,
@@ -142,6 +179,7 @@ export function mapTunnelInsert(input: CreateTunnelInput): TunnelInsertRow {
 
     start_chainage: input.startChainage,
     end_chainage: input.endChainage,
+    adjustment: input.adjustment,
 
     sort_order: input.sortOrder,
     is_disabled: input.isDisabled,

@@ -15,7 +15,7 @@ import {
 
 import { deleteSectionAction } from "../actions";
 import {SectionListItem } from "../types";
-import { routes } from "@/lib/core/router/router";
+import { routes } from "@/lib/core/routes";
 import { toast } from "sonner";
 import { useState } from "react";
 

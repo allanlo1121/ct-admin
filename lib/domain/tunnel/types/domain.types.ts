@@ -15,21 +15,24 @@ export type TunnelBase = {
     name: string;
     aliasName: string | null;
     prefix: string | null;
-    startChainage: number | null;
-    endChainage: number | null;
+    startChainage: number;
+    endChainage: number;
+    adjustment: number;
 }
 
 export type TunnelListItem = TunnelBase & {
 
-   
+
     project: ProjectRef;
     region: MasterDataRef;
     section: SectionRef;
 
 
     remark: string | null;
-    sortOrder: number | null;
+    sortOrder: number;
     isDisabled: boolean;
 };
+
+export type TunnelDetail = TunnelListItem
 
 // export type TunnelInsertItem = Camelize<TunnelInsertRow>;

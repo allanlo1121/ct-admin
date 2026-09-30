@@ -4,11 +4,12 @@ import { Suspense } from "react";
 import { PageHeader } from "@/components/layout/page-header";
 import { ErrorBlock } from "@/components/common/error-block";
 import { tunnelQuery } from "@/lib/domain/tunnel/queries";
-import { listTunnels } from "@/lib/domain/tunnel/services";
 
-import { TunnelListToolbar } from "@/lib/domain/tunnel/components/tunnel-list-toolbar";
-import { TunnelTableClient } from "@/lib/domain/tunnel/pages/table-client";
+
+import { TunnelListToolbar } from "@/lib/domain/tunnel/ui/tunnel-list-toolbar";
+import { TunnelTableClient } from "@/lib/domain/tunnel/ui/table-client";
 import { getErrorMessage } from "@/lib/shared/contracts/error-codes";
+import { tunnelRepository } from "@/lib/domain/tunnel/repositories";
 
 export const metadata: Metadata = {
   title: "隧道管理",
@@ -31,7 +32,7 @@ export default async function Page({
   let result;
 
   try {
-    result = await listTunnels(params);
+    result = await tunnelRepository.paginate(params);
   } catch (error) {
     console.error("Error fetching tunnels:", error);
     return <ErrorBlock message={getErrorMessage(error)} />;

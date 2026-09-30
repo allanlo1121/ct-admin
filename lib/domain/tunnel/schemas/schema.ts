@@ -1,5 +1,5 @@
 
-import { idSchema} from "@/lib/shared/schema";
+import { idSchema } from "@/lib/shared/schema";
 import { z } from "zod";
 
 /**
@@ -27,14 +27,15 @@ export const TunnelFormSchema = z.object({
     .nullable(),
   startChainage: z.coerce
     .number()
-    .optional()
-    .nullable(),
+    .default(0),
 
   endChainage: z.coerce
     .number()
-    .optional()
-    .nullable(),
+    .default(0),
 
+  adjustment: z.coerce
+    .number()
+    .default(0),
 
   sortOrder: z.coerce
     .number()

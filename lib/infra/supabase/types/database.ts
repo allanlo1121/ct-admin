@@ -8078,12 +8078,10 @@ export type Database = {
           end_ring_no: number
           id: string
           inner_diameter: number | null
-          is_disabled: boolean
           name: string | null
           outer_diameter: number | null
           remark: string | null
           ring_width: number
-          sort_order: number
           start_ring_no: number
           thickness: number | null
           tunnel_id: string
@@ -8092,12 +8090,10 @@ export type Database = {
           end_ring_no: number
           id?: string
           inner_diameter?: number | null
-          is_disabled?: boolean
           name?: string | null
           outer_diameter?: number | null
           remark?: string | null
           ring_width: number
-          sort_order?: number
           start_ring_no: number
           thickness?: number | null
           tunnel_id: string
@@ -8106,12 +8102,10 @@ export type Database = {
           end_ring_no?: number
           id?: string
           inner_diameter?: number | null
-          is_disabled?: boolean
           name?: string | null
           outer_diameter?: number | null
           remark?: string | null
           ring_width?: number
-          sort_order?: number
           start_ring_no?: number
           thickness?: number | null
           tunnel_id?: string
@@ -8458,56 +8452,59 @@ export type Database = {
       }
       tunnels: {
         Row: {
+          adjustment: number | null
           alias_name: string | null
           created_at: string | null
           created_by: string | null
           deleted_at: string | null
           deleted_by: string | null
-          end_chainage: number | null
+          end_chainage: number
           id: string
           is_disabled: boolean
           name: string
           prefix: string | null
           remark: string | null
           section_id: string
-          sort_order: number | null
-          start_chainage: number | null
+          sort_order: number
+          start_chainage: number
           updated_at: string | null
           updated_by: string | null
         }
         Insert: {
+          adjustment?: number | null
           alias_name?: string | null
           created_at?: string | null
           created_by?: string | null
           deleted_at?: string | null
           deleted_by?: string | null
-          end_chainage?: number | null
+          end_chainage?: number
           id?: string
           is_disabled?: boolean
           name: string
           prefix?: string | null
           remark?: string | null
           section_id: string
-          sort_order?: number | null
-          start_chainage?: number | null
+          sort_order?: number
+          start_chainage?: number
           updated_at?: string | null
           updated_by?: string | null
         }
         Update: {
+          adjustment?: number | null
           alias_name?: string | null
           created_at?: string | null
           created_by?: string | null
           deleted_at?: string | null
           deleted_by?: string | null
-          end_chainage?: number | null
+          end_chainage?: number
           id?: string
           is_disabled?: boolean
           name?: string
           prefix?: string | null
           remark?: string | null
           section_id?: string
-          sort_order?: number | null
-          start_chainage?: number | null
+          sort_order?: number
+          start_chainage?: number
           updated_at?: string | null
           updated_by?: string | null
         }
@@ -9911,6 +9908,7 @@ export type Database = {
       }
       v_tunnel_list: {
         Row: {
+          adjustment: number | null
           alias_name: string | null
           end_chainage: number | null
           id: string | null

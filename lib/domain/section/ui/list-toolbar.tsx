@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import { Search } from "@/components/common/search-input";
 
 import { sectionQuery } from "@/lib/domain/section/queries";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 
 export function SectionListToolbar() {

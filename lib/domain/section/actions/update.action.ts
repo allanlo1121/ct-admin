@@ -9,20 +9,7 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import { sectionRepository } from "../repositories";
 
-export type State = {
-  errors?: {
-    name?: string[];
-    shortName?: string[];
-    type?: string[];
-    projectId?: string[];
-    lineMode?: string[];
-    sortOrder?: string[];
-    isDisabled?: string[];
-    remark?: string[];
-  };
-  message?: string | null;
-};
-
+ import type { State } from "./create.action";
 
 export async function updateSectionAction(id: string, prevState: State, formData: FormData) {
   console.log("SERVER ACTION RUNNING");

@@ -21,7 +21,7 @@ import {
 
 import { logoutAction } from "@/app/actions/auth.actions";
 import { useRouter } from "next/navigation";
-import App from "next/app";
+
 import { AppUser } from "@/lib/domain/system/appContext/types";
 
 export function NavUser({ user }: { user: AppUser }) {

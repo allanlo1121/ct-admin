@@ -5,7 +5,7 @@ import { Search } from "@/components/common/search-input";
 import { Button } from "@/components/ui/button";
 import { tunnelQuery } from "@/lib/domain/tunnel/queries";
 import { useRouter, useSearchParams } from "next/navigation";
-import { routes } from "@/lib/core/router/router";
+import { routes } from "@/lib/core/routes";
 
 export function TunnelListToolbar() {
   const router = useRouter();
@@ -27,7 +27,7 @@ export function TunnelListToolbar() {
           onClick={() =>
             router.push(
               tunnelQuery.buildUrl(routes.tunnels.create, {
-                organizationId: query.organizationId,
+                projectId: query.projectId,
               })
             )
           }

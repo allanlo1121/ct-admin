@@ -18,7 +18,13 @@ export type TunnelRow = Database["proj"]["Tables"]["tunnels"]["Row"];
 export type TunnelInsertRow = Database["proj"]["Tables"]["tunnels"]["Insert"];
 export type TunnelUpdateRow = Database["proj"]["Tables"]["tunnels"]["Update"];
 
-export type Tunnel = Camelize<TunnelRow>;
+
+export type TunnelSegmentRow = Database["proj"]["Tables"]["tunnel_segments"]["Row"];
+export type TunnelSegmentInsertRow = Database["proj"]["Tables"]["tunnel_segments"]["Insert"];
+export type TunnelSegmentUpdateRow = Database["proj"]["Tables"]["tunnel_segments"]["Update"];
+
+
+
 
 // export type TunnelStatusTimelineRow = Database["proj"]["Tables"]["tunnel_status_timeline"]["Row"];
 // export type TunnelStatusTimelineInsertRow =

@@ -1,5 +1,5 @@
 'use client';
-
+import { useRouter } from "next/navigation";
 import { ProjectRef } from "@/lib/domain/project/types/";
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -24,6 +24,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 
 export default function EditForm({ section, projects }: { section: SectionRow; projects: ProjectRef[] }) {
+  const router = useRouter();
   const initialState: State = { message: null, errors: {} };
   const updateSectionWithId = updateSectionAction.bind(null,section.id)
   const [state, formAction] = useActionState(updateSectionWithId, initialState);
@@ -280,12 +281,13 @@ export default function EditForm({ section, projects }: { section: SectionRow; p
         </div>
 
         <div className="mt-6 flex justify-end gap-4">
-          <Link
-            href="/proj/sections"
-            className="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
-          >
-            取消
-          </Link>
+     <Button
+  type="button"
+  variant="outline"
+  onClick={() => router.back()}
+>
+  取消
+</Button>
           <Button type="submit">更新工点</Button>
         </div>
       </FieldGroup>

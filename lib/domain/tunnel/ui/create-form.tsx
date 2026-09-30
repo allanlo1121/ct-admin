@@ -5,17 +5,12 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
 import { useActionState, useState } from 'react';
-import { sectionTypeLabels, lineModeLabels } from "../constants";
-import { SectionType } from "../types";
 import { Switch } from "@/components/ui/switch";
 
 import {
   Field,
-  FieldDescription,
   FieldGroup,
   FieldLabel,
-  FieldLegend,
-  FieldSeparator,
   FieldSet,
 } from "@/components/ui/field"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -23,12 +18,23 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { SectionRef } from "../../section/types";
 import { createTunnelAction, State } from "../actions";
+import { InputGroup, InputGroupAddon, InputGroupInput, InputGroupText } from '@/components/ui/input-group';
 
 
 export default function Form({ sections }: { sections: SectionRef[] }) {
   const initialState: State = { message: null, errors: {} };
   const [state, formAction] = useActionState(createTunnelAction, initialState);
-  const [sectionType, setSectionType] = useState<SectionType | "">("")
+  const [startChainage, setStartChainage] = useState("");
+  const [endChainage, setEndChainage] = useState("");
+  const [adjustment, setAdjustment] = useState("");
+
+  const length =
+    startChainage !== "" && endChainage !== ""
+      ? Math.abs(Number(endChainage) - Number(startChainage) + Number(adjustment))
+      : 0.00;
+
+  console.log("隧道长度",length);
+
 
   return (
     <form action={formAction}>
@@ -38,7 +44,7 @@ export default function Form({ sections }: { sections: SectionRef[] }) {
             {/* Project Name */}
             <Field >
 
-              <FieldLabel htmlFor="project" className="mb-2 block text-sm font-medium">
+              <FieldLabel htmlFor="project" className="block text-sm font-medium">
                 选择隧道所属工点
               </FieldLabel>
               <Select name="sectionId">
@@ -71,7 +77,7 @@ export default function Form({ sections }: { sections: SectionRef[] }) {
           <div className="grid grid-cols-2 gap-4">
             {/* Section Name */}
             <Field>
-              <FieldLabel htmlFor="name" className="mb-2 block text-sm font-medium">
+              <FieldLabel htmlFor="name" className="block text-sm font-medium">
                 隧道名称
               </FieldLabel>
               <Input
@@ -93,7 +99,7 @@ export default function Form({ sections }: { sections: SectionRef[] }) {
             </Field>
             {/* Section shortName */}
             <Field>
-              <FieldLabel htmlFor="shortName" className="mb-2 block text-sm font-medium">
+              <FieldLabel htmlFor="shortName" className="block text-sm font-medium">
                 隧道别称
               </FieldLabel>
               <Input
@@ -114,11 +120,11 @@ export default function Form({ sections }: { sections: SectionRef[] }) {
               </div>
             </Field>
           </div>
+          <FieldSet>
+            <div className="grid grid-cols-5 gap-4">
 
-          <div className="grid grid-cols-5 gap-4">
-            <FieldSet>
               <Field className="col-span-1">
-                <FieldLabel htmlFor="prefix" className="mb-2 block text-sm font-medium">
+                <FieldLabel htmlFor="prefix" className="block text-sm font-medium">
                   里程标记
                 </FieldLabel>
                 <Input
@@ -138,14 +144,16 @@ export default function Form({ sections }: { sections: SectionRef[] }) {
                     ))}
                 </div>
               </Field>
-              <Field className="col-span-1">
-                <FieldLabel htmlFor="startChainage" className="mb-2 block text-sm font-medium">
+              <Field className="col-span-2">
+                <FieldLabel htmlFor="startChainage" className="block text-sm font-medium">
                   起始里程
                 </FieldLabel>
                 <Input
                   id="startChainage"
                   name="startChainage"
                   type="number"
+                  value={Number(startChainage).toFixed(3)}
+                  onChange={(e) => setStartChainage(e.target.value)}
                   placeholder="输入起始里程"
                   className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
                   aria-describedby="startChainage-error"
@@ -159,9 +167,70 @@ export default function Form({ sections }: { sections: SectionRef[] }) {
                     ))}
                 </div>
               </Field>
+              <Field className="col-span-2">
+                <FieldLabel htmlFor="endChainage" className="block text-sm font-medium">
+                  终止里程
+                </FieldLabel>
+                <Input
+                  id="endChainage"
+                  name="endChainage"
+                  type="number"
+                  value={Number(endChainage).toFixed(3)}
+                  onChange={(e) => setEndChainage(e.target.value)}
+                  placeholder="输入终止里程"
+                  className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+                  aria-describedby="endChainage-error"
+                />
+                <div id="endChainage-error" aria-live="polite" aria-atomic="true">
+                  {state.errors?.endChainage &&
+                    state.errors.endChainage.map((error: string) => (
+                      <p className="mt-2 text-sm text-red-500" key={error}>
+                        {error}
+                      </p>
+                    ))}
+                </div>
+              </Field>
+              <Field className="col-span-2">
+                <FieldLabel htmlFor="adjustment" className="block text-sm font-medium">
+                  长链/短链
+                </FieldLabel>
+                <Input
+                  id="adjustment"
+                  name="adjustment"
+                  type="number"
+                  value={Number(adjustment).toFixed(3) }
+                  onChange={(e) => setAdjustment(e.target.value)}
+                  placeholder="输入长链/短链"
+                  className="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+                  aria-describedby="adjustment-error"
+                />
+                <div id="adjustment-error" aria-live="polite" aria-atomic="true">
+                  {state.errors?.adjustment &&
+                    state.errors.adjustment.map((error: string) => (
+                      <p className="mt-2 text-sm text-red-500" key={error}>
+                        {error}
+                      </p>
+                    ))}
+                </div>
+              </Field>
+              <Field className="col-span-2">
+                <FieldLabel>隧道长度</FieldLabel>
 
-            </FieldSet>
-          </div>
+                <InputGroup>
+                  <InputGroupInput type='number' placeholder="0.00" value={length.toFixed(3)} disabled readOnly />
+                  <InputGroupAddon align="inline-end">
+                    <InputGroupText>米</InputGroupText>
+                  </InputGroupAddon>
+                  {/* <Input className="font-medium" value={length} readOnly />
+                  <span className="ml-2 text-muted-foreground">
+                    m
+                  </span> */}
+                </InputGroup>
+
+              </Field>
+
+            </div>
+          </FieldSet>
 
 
           {/* Section Type */}

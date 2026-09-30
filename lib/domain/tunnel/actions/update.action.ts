@@ -1,74 +1,57 @@
 "use server";
 
 import { z } from "zod";
+
 import {
-  UpdateTunnelInput,
-  UpdateTunnelScheduleVersionInput,
-  UpdateTunnelStatusTimelineInput,
-  UpdateTunnelSchema,
+  UpdateTunnelSchema
 } from "../schemas";
+import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
+import { tunnelRepository } from "../repositories";
+import {  mapTunnelUpdate } from "../mappers";
+import type { State } from "./create.action";
 
-import { ActionResult } from "@/lib/shared/contracts";
-import { updateTunnel, updateTunnelScheduleVersion, updateTunnelStatusTimeline } from "../services";
-import { Tunnel, TunnelScheduleVersion, TunnelStatusTimeline } from "../types";
-
-import { toActionError } from "@/lib/shared/contracts/action-result";
-
-export async function updateTunnelAction(data: UpdateTunnelInput): Promise<ActionResult<Tunnel>> {
+export async function updateTunnelAction(id: string, prevState: State, formData: FormData) {
   console.log("SERVER ACTION RUNNING");
-  console.log("update tunnel formData", data);
+  console.log("create tunnel formData", formData);
 
-  const parsed = UpdateTunnelSchema.safeParse(data);
+  const validatedFields = UpdateTunnelSchema.safeParse({
+    name: formData.get("name"),
+    aliasName: formData.get("aliasName"),
+    sectionId: formData.get("sectionId"),
+    prefix: formData.get("prefix"),
+    startChainage: formData.get("startChainage"),
+    endChainage: formData.get("endChainage"),
+    adjustment: formData.get("adjustment"),
+    sortOrder: formData.get("sortOrder"),
+    isDisabled: formData.get("isDisabled"),
+    remark: formData.get("remark"),
+  });
 
-  if (!parsed.success) {
+  console.log("Parsed form data", validatedFields);
+
+  if (!validatedFields.success) {
     return {
-      success: false,
       message: "表单验证失败",
-      errors: z.flattenError(parsed.error).fieldErrors,
+      errors: z.flattenError(validatedFields.error).fieldErrors,
     };
   }
 
   try {
-    const result = await updateTunnel(parsed.data);
+    const input = mapTunnelUpdate(validatedFields.data);
+    const result = await tunnelRepository.update(id,input);
+    console.log("Tunnel updated successfully", result);
 
-    return {
-      success: true,
-      data: result,
-      message: "更新成功",
-    };
+
   } catch (error: unknown) {
-    return toActionError(error);
+    console.error("Error creating tunnel", error);
+    return {
+      message: "创建隧道失败",
+      errors: undefined,
+    };
+
   }
+  revalidatePath('/proj/tunnels');
+  redirect('/proj/tunnels');
 }
 
-export async function updateTunnelScheduleAction(
-  data: UpdateTunnelScheduleVersionInput
-): Promise<ActionResult<TunnelScheduleVersion>> {
-  try {
-    const result = await updateTunnelScheduleVersion(data);
-
-    return {
-      success: true,
-      data: result,
-      message: "计划日期已更新",
-    };
-  } catch (error: unknown) {
-    return toActionError(error);
-  }
-}
-
-export async function updateTunnelStatusTimelineAction(
-  data: UpdateTunnelStatusTimelineInput
-): Promise<ActionResult<TunnelStatusTimeline>> {
-  try {
-    const result = await updateTunnelStatusTimeline(data);
-
-    return {
-      success: true,
-      data: result,
-      message: "隧道状态已更新",
-    };
-  } catch (error: unknown) {
-    return toActionError(error);
-  }
-}

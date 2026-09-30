@@ -3,3 +3,4 @@
 // export * from "./organization-update.repository"
 export * from "./repository";
 export * from "./assignment.repository";
+export * from "./segment.repository";

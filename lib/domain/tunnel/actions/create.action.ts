@@ -1,15 +1,14 @@
 "use server";
 
 import { z } from "zod";
-import {
-  createTunnelFull,
 
-} from "../services";
 import {
   CreateTunnelSchema
 } from "../schemas";
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+import { tunnelRepository } from "../repositories";
+import { mapTunnelInsert } from "../mappers";
 
 export type State = {
   errors?: {
@@ -19,14 +18,7 @@ export type State = {
     prefix?: string[];
     startChainage?: string[];
     endChainage?: string[];
-    advanceDirection?: string[];
-    startRing?: string[];
-    endRing?: string[];
-    actualStartDate?: string[];
-    actualEndDate?: string[];
-    geology?: string[];
-    latitude?: string[];
-    longitude?: string[];
+    adjustment?: string[];
     sortOrder?: string[];
     isDisabled?: string[];
     remark?: string[];
@@ -45,14 +37,7 @@ export async function createTunnelAction(prevState: State, formData: FormData) {
     prefix: formData.get("prefix"),
     startChainage: formData.get("startChainage"),
     endChainage: formData.get("endChainage"),
-    advanceDirection: formData.get("advanceDirection"),
-    startRing: formData.get("startRing"),
-    endRing: formData.get("endRing"),
-    actualStartDate: formData.get("actualStartDate"),
-    actualEndDate: formData.get("actualEndDate"),
-    geology: formData.get("geology"),
-    latitude: formData.get("latitude"),
-    longitude: formData.get("longitude"),
+    adjustment: formData.get("adjustment"),
     sortOrder: formData.get("sortOrder"),
     isDisabled: formData.get("isDisabled"),
     remark: formData.get("remark"),
@@ -68,7 +53,9 @@ export async function createTunnelAction(prevState: State, formData: FormData) {
   }
 
   try {
-    const result = await createTunnelFull(validatedFields.data);
+    const input = mapTunnelInsert(validatedFields.data);
+    const result = await tunnelRepository.insert(input);
+    console.log("Tunnel created successfully", result);
 
 
   } catch (error: unknown) {
@@ -77,9 +64,9 @@ export async function createTunnelAction(prevState: State, formData: FormData) {
       message: "创建隧道失败",
       errors: undefined,
     };
-    
+
   }
-    revalidatePath('/proj/tunnels');
-    redirect('/proj/tunnels');
+  revalidatePath('/proj/tunnels');
+  redirect('/proj/tunnels');
 }
 

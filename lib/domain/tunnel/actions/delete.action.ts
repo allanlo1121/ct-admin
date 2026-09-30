@@ -1,22 +1,22 @@
 "use server";
 
-import { ActionResult, toActionError } from "@/lib/shared/contracts";
-import { deleteTunnel } from "../services";
-import { Tunnel } from "../types";
+import { revalidatePath } from 'next/cache';
+import { segmentRepository, tunnelRepository } from "../repositories";
 
-export async function deleteTunnelAction(id: string): Promise<ActionResult<void>> {
+export async function deleteTunnelAction(id: string): Promise<void> {
   console.log("===deleteTunnel===", id);
 
-  try {
-    await deleteTunnel(id);
+  await tunnelRepository.deleteById(id);
 
-    return {
-      success: true,
-      data: undefined,
-      message: "删除成功",
-    };
-  } catch (error) {
-    console.error("Error deleting tunnel:", error);
-    return toActionError(error);
-  }
+  revalidatePath('/proj/tunnels');
+}
+
+
+
+export async function deleteTunnelSegmentAction(id: string): Promise<void> {
+  console.log("===deleteTunnelSegment===", id);
+
+  await segmentRepository.deleteById(id);
+
+  revalidatePath('/proj/tunnels');
 }

@@ -1,22 +1,17 @@
 import { createClient } from "@/lib/infra/supabase/server";
 
-import { appErrors, PaginatedResult } from "@/lib/shared/contracts";
+import { PaginatedResult } from "@/lib/shared/contracts";
 import { applyPagination, assertNoError } from "@/lib/infra/repositories/base.repository";
 
 import { tunnelQuery, TunnelQueryType } from "../queries";
-import { Tunnel, TunnelListItem, TunnelListRow, TunnelRow, TunnelInsertRow, TunnelUpdateRow } from "../types";
+import { TunnelListItem, TunnelRow, TunnelInsertRow, TunnelUpdateRow, TunnelDetail } from "../types";
 
 import {
-mapTunnelListItem
+  mapTunnelDetail,
+  mapTunnelListItem
 } from "../mappers";
-import { CreateTunnelInput, UpdateTunnelInput } from "../schemas";
 
-import {
-  insertTunnelScheduleVersion,
-  insertTunnelStatusTimeline,
-  updateTunnelScheduleVersion,
-  updateTunnelStatusTimeline,
-} from "./assignment.repository";
+
 
 
 
@@ -63,48 +58,35 @@ async function paginate(query: TunnelQueryType): Promise<PaginatedResult<TunnelL
 }
 
 export const tunnelRepository = {
-  insert: async (input: TunnelInsertRow): Promise<TunnelRow> => {
+  insert: async (input: TunnelInsertRow): Promise<void> => {
     console.log("Inserting tunnel with input:", input);
 
 
     const supabase = await createClient();
 
-    const { data, error } = await supabase
+    const { error } = await supabase
       .schema("proj")
       .from("tunnels")
-      .insert(input)
-      .select("*")
-      .single();
+      .insert(input);
 
-    // console.log("Insert tunnel result:", { data, error });
+
     assertNoError(error);
 
-    if (!data) {
-      throw appErrors.internal("tunnelRepository.insert", "创建隧道失败");
-    }
-
-    return data;
   },
-  update: async (id: string, input: TunnelUpdateRow): Promise<TunnelRow> => {
+  update: async (id: string, input: TunnelUpdateRow): Promise<void> => {
 
 
     const supabase = await createClient();
 
-    const { data, error } = await supabase
+    const { error } = await supabase
       .schema("proj")
       .from("tunnels")
       .update(input)
-      .eq("id", id)
-      .select("*")
-      .single();
+      .eq("id", id);
+
 
     assertNoError(error);
 
-    if (!data) {
-      throw appErrors.internal("tunnelRepository.update", "更新隧道失败");
-    }
-
-    return data;
   },
   deleteById: async (id: string): Promise<void> => {
     const supabase = await createClient();
@@ -118,7 +100,7 @@ export const tunnelRepository = {
     assertNoError(error);
   },
 
-  findById: async (id: string): Promise<TunnelRow> => {
+  findById: async (id: string): Promise<TunnelRow | null> => {
     const supabase = await createClient();
 
     const { data, error } = await supabase
@@ -130,16 +112,26 @@ export const tunnelRepository = {
 
     assertNoError(error);
 
-    if (!data) {
-      throw appErrors.internal("tunnelRepository.findById", "隧道不存在");
-    }
 
+    return data ?? null;
+  },
+  findDetailById: async (id: string): Promise<TunnelDetail | null> => {
+    const supabase = await createClient();
 
-    return data;
+    const { data, error } = await supabase
+      .schema("proj")
+      .from("v_tunnel_list")
+      .select("*")
+      .eq("id", id)
+      .single();
+
+    assertNoError(error);
+
+    return data ? mapTunnelDetail(data) : null;
   },
   // getTunnelDetailById,
   // getAllList: getAllTunnelList,
-  // paginate,
+  paginate,
   // softDeleteMany: softDeleteManyTunnel,
   // insertTunnelStatusTimeline,
   // updateTunnelStatusTimeline,

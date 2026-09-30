@@ -7,7 +7,7 @@ import { type TunnelListItem } from "../types";
 import { DataTableColumnHeader } from "@/components/data-table/data-table-column-header";
 import { DataTableRowActions } from "./data-table-row-actions";
 import { formatDateCN, formatDateTime } from "@/lib/utils";
-import { routes } from "@/lib/core/router/router";
+import { routes } from "@/lib/core/routes";
 
 export const tunnelColumns: ColumnDef<TunnelListItem>[] = [
   {
@@ -35,37 +35,65 @@ export const tunnelColumns: ColumnDef<TunnelListItem>[] = [
   },
   {
     accessorKey: "name",
-    header: ({ column }) => <DataTableColumnHeader column={column} title="隧道简称" />,
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="隧道名称" />
+    ),
     cell: ({ row }) => {
-      const tunnel = row.original;
+      const tunnel = row.original
+      const aliasName = tunnel.aliasName?.trim()
       return (
-        <Link href={routes.tunnels.detail(tunnel.id!)} className="w-[80px]">
+        <Link
+          href={routes.tunnels.detail(tunnel.id!)}
+          className="w-[200px]"
+        >
           {tunnel.name}
+          {aliasName && ` / ${aliasName}`}
         </Link>
-      );
+      )
     },
     enableSorting: false,
     enableHiding: false,
   },
   {
-    accessorKey: "fullName",
-    header: ({ column }) => <DataTableColumnHeader column={column} title="隧道全称" />,
-    cell: ({ row }) => <div className="w-[200px]">{row.getValue("fullName")}</div>,
-    enableSorting: false,
+    id: "region",
+    accessorFn: (row) => row.region?.name ?? "",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="所属片区" />
+    ),
+    cell: ({ row }) => (
+      <div className="w-[120px]">
+        {row.original.region?.name ?? "-"}
+      </div>
+    ),
+    enableSorting: true,
     enableHiding: true,
   },
   {
-    accessorKey: "projectName",
-    header: ({ column }) => <DataTableColumnHeader column={column} title="所属工程" />,
-    cell: ({ row }) => <div className="w-[120px]">{row.getValue("projectName")}</div>,
-    enableSorting: false,
+    id: "project",
+    accessorFn: (row) => row.project?.name ?? "",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="所属工程" />
+    ),
+    cell: ({ row }) => (
+      <div className="w-[180px]">
+        {row.original.project?.name ?? "-"}
+      </div>
+    ),
+    enableSorting: true,
     enableHiding: true,
   },
   {
-    accessorKey: "organizationName",
-    header: ({ column }) => <DataTableColumnHeader column={column} title="所在项目部" />,
-    cell: ({ row }) => <div className="w-[120px]">{row.getValue("organizationName")}</div>,
-    enableSorting: false,
+    id: "section",
+    accessorFn: (row) => row.section?.name ?? "",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="所属区间" />
+    ),
+    cell: ({ row }) => (
+      <div className="w-[120px]">
+        {row.original.section?.name ?? "-"}
+      </div>
+    ),
+    enableSorting: true,
     enableHiding: true,
   },
   {
@@ -90,6 +118,13 @@ export const tunnelColumns: ColumnDef<TunnelListItem>[] = [
     enableHiding: true,
   },
   {
+    accessorKey: "adjustment",
+    header: ({ column }) => <DataTableColumnHeader column={column} title="长短链" />,
+    cell: ({ row }) => <div className="w-[120px]">{row.getValue("adjustment")}</div>,
+    enableSorting: false,
+    enableHiding: true,
+  },
+  {
     accessorKey: "startRing",
     header: ({ column }) => <DataTableColumnHeader column={column} title="起始环号" />,
     cell: ({ row }) => <div className="w-[120px]">{row.getValue("startRing")}</div>,
@@ -103,44 +138,11 @@ export const tunnelColumns: ColumnDef<TunnelListItem>[] = [
     enableSorting: false,
     enableHiding: true,
   },
-  {
-    accessorKey: "tunnelStatusName",
-    header: ({ column }) => <DataTableColumnHeader column={column} title="隧道状态" />,
-    cell: ({ row }) => <div className="w-[120px]">{row.getValue("tunnelStatusName")}</div>,
-    enableSorting: false,
-    enableHiding: true,
-  },
-  {
-    accessorKey: "scheduleStartDate",
-    header: ({ column }) => <DataTableColumnHeader column={column} title="计划开工日期" />,
-    cell: ({ row }) => (
-      <div className="w-[120px]">{formatDateCN(row.getValue("scheduleStartDate") as string)}</div>
-    ),
-    enableSorting: false,
-    enableHiding: true,
-  },
-  {
-    accessorKey: "scheduleEndDate",
-    header: ({ column }) => <DataTableColumnHeader column={column} title="计划竣工日期" />,
-    cell: ({ row }) => (
-      <div className="w-[120px]">{formatDateCN(row.getValue("scheduleEndDate") as string)}</div>
-    ),
-    enableSorting: false,
-    enableHiding: true,
-  },
+
   {
     accessorKey: "sortOrder",
     header: ({ column }) => <DataTableColumnHeader column={column} title="排序" />,
     cell: ({ row }) => <div className="w-[120px]">{row.getValue("sortOrder")}</div>,
-    enableSorting: false,
-    enableHiding: true,
-  },
-  {
-    accessorKey: "createdAt",
-    header: ({ column }) => <DataTableColumnHeader column={column} title="创建时间" />,
-    cell: ({ row }) => (
-      <div className="w-[120px]">{formatDateCN(row.getValue("createdAt") as string)}</div>
-    ),
     enableSorting: false,
     enableHiding: true,
   },

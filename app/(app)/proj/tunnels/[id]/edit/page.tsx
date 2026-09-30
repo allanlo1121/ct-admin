@@ -1,37 +1,40 @@
-import { Breadcrumbs } from "@/components/common/bread-crubms";
-import { fetchTunnelById } from "@/lib/domain/tunnel/services";
-import { fetchProjectById } from "@/lib/domain/project/services";
-import { getErrorMessage } from "@/lib/shared/contracts/error-codes";
-import { ErrorBlock } from "@/components/common/error-block";
-import { UpdateTunnel } from "@/lib/domain/tunnel/components/forms";
+import EditForm from '@/lib/domain/tunnel/ui/edit-form';
 
-export default async function Page({ params }: { params: Promise<{ id: string }> }) {
-  console.log("===tunnel page ===");
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
-  const { id } = await params;
-  let tunnel;
-  let project;
-  try {
-    tunnel = await fetchTunnelById(id);
-    project = await fetchProjectById(tunnel.projectId);
-  } catch (error) {
-    console.error("Error fetching tunnel:", error);
-    return <ErrorBlock message={getErrorMessage(error)} />;
+import { tunnelRepository } from '@/lib/domain/tunnel/repositories';
+import { sectionRepository } from '@/lib/domain/section/repositories';
+
+import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Edit Section',
+};
+
+export default async function Page(props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
+  const id = params.id;
+  const [tunnel, sections] = await Promise.all([
+    tunnelRepository.findById(id),
+    sectionRepository.findRefs(),
+  ]);
+
+  if (!tunnel) {
+    notFound();
   }
 
   return (
-    <main>
-      <Breadcrumbs
-        breadcrumbs={[
-          { label: "系统设置", href: "/system" },
-          { label: "隧道", href: "/system/tunnels" },
-          {
-            label: "编辑隧道",
-            active: true,
-          },
-        ]}
-      />
-      <UpdateTunnel title="编辑隧道" description="隧道" initialValues={tunnel} />
-    </main>
+    <Card className="w-full mx-auto max-w-4xl">
+      <CardHeader>
+        <CardTitle>编辑隧道</CardTitle>
+
+        <CardDescription>请更新隧道的相关信息</CardDescription>
+      </CardHeader>
+
+      <CardContent>
+        <EditForm tunnel={tunnel} sections={sections} />
+      </CardContent>
+    </Card>
   );
 }

@@ -4,7 +4,7 @@ import { appErrors, PaginatedResult } from "@/lib/shared/contracts";
 import { applyPagination, assertNoError } from "@/lib/infra/repositories/base.repository";
 
 import { sectionQuery, SectionQueryType } from "../queries";
-import { SectionInsertRow, SectionListItem, SectionRow, SectionUpdateRow } from "../types";
+import { SectionInsertRow, SectionListItem, SectionRef, SectionRow, SectionUpdateRow } from "../types";
 import { mapSectionListItem } from "../mappers";
 
 export const sectionRepository = {
@@ -75,6 +75,7 @@ export const sectionRepository = {
   // getSectionDetailById,
   paginate,
   fetchPages,
+  findRefs,
 
 };
 
@@ -122,7 +123,7 @@ async function paginate(query: SectionQueryType): Promise<PaginatedResult<Sectio
 
 }
 
-async function fetchPages(query: string,items_per_page: number  ): Promise<number> {
+async function fetchPages(query: string, items_per_page: number): Promise<number> {
   const supabase = await createClient();
 
   let dbQuery = supabase
@@ -156,4 +157,12 @@ async function fetchPages(query: string,items_per_page: number  ): Promise<numbe
 //   return data ?? null;
 // }
 
+async function findRefs(): Promise<SectionRef[]> {
+  const supabase = await createClient();
 
+  const { data, error } = await supabase.schema("proj").from("sections").select("id,name");
+
+  assertNoError(error);
+
+  return data as SectionRef[];
+}

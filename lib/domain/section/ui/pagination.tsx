@@ -1,10 +1,10 @@
 'use client';
 
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react';
-import clsx from 'clsx';
 import Link from 'next/link';
 import { generatePagination } from '@/lib/shared/utils';
 import { usePathname, useSearchParams } from 'next/navigation';
+import { clsx } from "cn";
 
 export default function Pagination({ totalPages }: { totalPages: number }) {
   const pathname = usePathname();

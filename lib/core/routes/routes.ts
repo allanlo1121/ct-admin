@@ -1,14 +1,14 @@
 import { TableEntity } from "@/lib/core/database/types";
 
-type EntityRoutes = {
-  list: string;
-  create: string;
-  import: string;
-  detail: (id: string) => string;
-  edit: (id: string) => string;
-  workspace?: (id: string) => string;
-  runtime?: (id: string) => string;
-};
+// type EntityRoutes = {
+//   list: string;
+//   create: string;
+//   import: string;
+//   detail: (id: string) => string;
+//   edit: (id: string) => string;
+//   workspace?: (id: string) => string;
+//   runtime?: (id: string) => string;
+// };
 
 export const routes = {
   organizations: {
@@ -54,7 +54,10 @@ export const routes = {
     import: "/proj/tunnels/import",
     detail: (id: string) => `/proj/tunnels/${id}`,
     edit: (id: string) => `/proj/tunnels/${id}/edit`,
-    workspace: (id: string) => `/workspace/tunnels/${id}/`,
+    segments: (id: string) => `/proj/tunnels/${id}/segments`,
+    status: (id: string) => `/proj/tunnels/${id}/status`,
+    plans: (id: string) => `/proj/tunnels/${id}/plans`,
+    risks: (id: string) => `/proj/tunnels/${id}/risks`,
   },
 
   tbms: {
@@ -65,4 +68,4 @@ export const routes = {
     edit: (id: string) => `/equip/tbms/${id}/edit`,
     runtime: (id: string) => `/equip/tbms/${id}/runtime`,
   },
-} satisfies Record<TableEntity, EntityRoutes>;
+};
